@@ -1,0 +1,159 @@
+{
+    "graph": {
+        "_type": "graph",
+        "format": "keras",
+        "nodes": [
+            {
+                "name": "lstm_1_input",
+                "id": "lstm_1_input",
+                "class_name": "InputLayer",
+                "output_shape": [
+                    null,
+                    20,
+                    11
+                ],
+                "num_parameters": 0
+            },
+            {
+                "name": "lstm_1",
+                "id": "lstm_1",
+                "class_name": "LSTM",
+                "output_shape": [
+                    null,
+                    20,
+                    16
+                ],
+                "num_parameters": 1792
+            },
+            {
+                "name": "dropout_1",
+                "id": "dropout_1",
+                "class_name": "Dropout",
+                "output_shape": [
+                    null,
+                    20,
+                    16
+                ],
+                "num_parameters": 0
+            },
+            {
+                "name": "lstm_2",
+                "id": "lstm_2",
+                "class_name": "LSTM",
+                "output_shape": [
+                    null,
+                    16
+                ],
+                "num_parameters": 2112
+            },
+            {
+                "name": "dropout_2",
+                "id": "dropout_2",
+                "class_name": "Dropout",
+                "output_shape": [
+                    null,
+                    16
+                ],
+                "num_parameters": 0
+            },
+            {
+                "name": "dense_1",
+                "id": "dense_1",
+                "class_name": "Dense",
+                "output_shape": [
+                    null,
+                    1
+                ],
+                "num_parameters": 17
+            },
+            {
+                "name": "dense_2",
+                "id": "dense_2",
+                "class_name": "Dense",
+                "output_shape": [
+                    null,
+                    3
+                ],
+                "num_parameters": 6
+            }
+        ],
+        "edges": [
+            [
+                "lstm_1_input",
+                "lstm_1"
+            ],
+            [
+                "lstm_1",
+                "dropout_1"
+            ],
+            [
+                "dropout_1",
+                "lstm_2"
+            ],
+            [
+                "lstm_2",
+                "dropout_2"
+            ],
+            [
+                "dropout_2",
+                "dense_1"
+            ],
+            [
+                "dense_1",
+                "dense_2"
+            ]
+        ]
+    },
+    "val_acc": 0.3386319846431644,
+    "loss": 1.1211223614552948,
+    "_runtime": 34.816545486450195,
+    "val_loss": 1.0967813254780852,
+    "_timestamp": 1564094782.7602925,
+    "_step": 0,
+    "acc": 0.3361182519280206,
+    "epoch": 0,
+    "examples": {
+        "width": 11,
+        "height": 20,
+        "count": 36,
+        "_type": "images",
+        "captions": [
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "cat",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "happy"
+        ]
+    }
+}

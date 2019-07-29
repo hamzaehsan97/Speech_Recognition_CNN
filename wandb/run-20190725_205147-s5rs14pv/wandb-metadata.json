@@ -1,0 +1,21 @@
+{
+    "root": "C:\\Users\\HamzaEhsan\\Desktop\\speechRecognition",
+    "program": "python",
+    "startedAt": "2019-07-25T20:51:46.597129",
+    "host": "DESKTOP-G19V3MH",
+    "username": "HamzaEhsan",
+    "os": "Windows-10-10.0.17134-SP0",
+    "python": "3.7.3",
+    "executable": "c:\\users\\hamzaehsan\\appdata\\local\\programs\\python\\python37\\python.exe",
+    "cpu_count": 8,
+    "args": [
+        "run",
+        "python",
+        "audio.py"
+    ],
+    "state": "failed",
+    "jobType": null,
+    "mode": "clirun",
+    "heartbeatAt": "2019-07-25T20:52:14.070475",
+    "exitcode": 1
+}

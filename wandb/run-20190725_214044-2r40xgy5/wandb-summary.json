@@ -1,0 +1,130 @@
+{
+    "graph": {
+        "_type": "graph",
+        "format": "keras",
+        "nodes": [
+            {
+                "name": "lstm_1_input",
+                "id": "lstm_1_input",
+                "class_name": "InputLayer",
+                "output_shape": [
+                    null,
+                    20,
+                    11
+                ],
+                "num_parameters": 0
+            },
+            {
+                "name": "lstm_1",
+                "id": "lstm_1",
+                "class_name": "LSTM",
+                "output_shape": [
+                    null,
+                    20,
+                    16
+                ],
+                "num_parameters": 1792
+            },
+            {
+                "name": "lstm_2",
+                "id": "lstm_2",
+                "class_name": "LSTM",
+                "output_shape": [
+                    null,
+                    16
+                ],
+                "num_parameters": 2112
+            },
+            {
+                "name": "dense_1",
+                "id": "dense_1",
+                "class_name": "Dense",
+                "output_shape": [
+                    null,
+                    1
+                ],
+                "num_parameters": 17
+            },
+            {
+                "name": "dense_2",
+                "id": "dense_2",
+                "class_name": "Dense",
+                "output_shape": [
+                    null,
+                    3
+                ],
+                "num_parameters": 6
+            }
+        ],
+        "edges": [
+            [
+                "lstm_1_input",
+                "lstm_1"
+            ],
+            [
+                "lstm_1",
+                "lstm_2"
+            ],
+            [
+                "lstm_2",
+                "dense_1"
+            ],
+            [
+                "dense_1",
+                "dense_2"
+            ]
+        ]
+    },
+    "examples": {
+        "width": 11,
+        "height": 20,
+        "count": 36,
+        "_type": "images",
+        "captions": [
+            "cat",
+            "happy",
+            "happy",
+            "cat",
+            "happy",
+            "happy",
+            "happy",
+            "happy",
+            "bed",
+            "happy",
+            "happy",
+            "happy",
+            "cat",
+            "cat",
+            "happy",
+            "cat",
+            "cat",
+            "happy",
+            "cat",
+            "happy",
+            "cat",
+            "happy",
+            "happy",
+            "cat",
+            "bed",
+            "happy",
+            "happy",
+            "cat",
+            "cat",
+            "cat",
+            "happy",
+            "cat",
+            "happy",
+            "happy",
+            "happy",
+            "cat"
+        ]
+    },
+    "_timestamp": 1564090989.1968887,
+    "val_loss": 0.9595152876969707,
+    "epoch": 49,
+    "loss": 0.8241372211120429,
+    "val_acc": 0.5327552984215621,
+    "acc": 0.634318766066838,
+    "_step": 49,
+    "_runtime": 141.44254970550537
+}

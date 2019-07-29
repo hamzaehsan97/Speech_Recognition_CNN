@@ -1,0 +1,287 @@
+Using TensorFlow backend.
+wandb: WARNING Run.description is deprecated. Please use wandb.init(notes="long notes") instead.
+Saving vectors of label - 'bed':   0%|          | 0/1713 [00:00<?, ?it/s]Saving vectors of label - 'bed':   1%|1         | 23/1713 [00:00<00:07, 224.66it/s]Saving vectors of label - 'bed':   3%|2         | 47/1713 [00:00<00:07, 228.58it/s]Saving vectors of label - 'bed':   4%|4         | 71/1713 [00:00<00:07, 230.07it/s]Saving vectors of label - 'bed':   6%|5         | 95/1713 [00:00<00:07, 230.46it/s]Saving vectors of label - 'bed':   7%|6         | 119/1713 [00:00<00:06, 231.37it/s]Saving vectors of label - 'bed':   8%|8         | 143/1713 [00:00<00:06, 231.39it/s]Saving vectors of label - 'bed':  10%|9         | 167/1713 [00:00<00:06, 232.08it/s]Saving vectors of label - 'bed':  11%|#1        | 189/1713 [00:00<00:06, 224.30it/s]Saving vectors of label - 'bed':  12%|#2        | 211/1713 [00:00<00:07, 208.04it/s]Saving vectors of label - 'bed':  14%|#3        | 232/1713 [00:01<00:07, 188.09it/s]Saving vectors of label - 'bed':  15%|#4        | 251/1713 [00:01<00:08, 180.75it/s]Saving vectors of label - 'bed':  16%|#6        | 275/1713 [00:01<00:07, 192.52it/s]Saving vectors of label - 'bed':  18%|#7        | 306/1713 [00:01<00:06, 213.35it/s]Saving vectors of label - 'bed':  20%|#9        | 338/1713 [00:01<00:05, 232.97it/s]Saving vectors of label - 'bed':  21%|##1       | 363/1713 [00:01<00:05, 231.62it/s]Saving vectors of label - 'bed':  23%|##2       | 387/1713 [00:01<00:05, 227.87it/s]Saving vectors of label - 'bed':  24%|##4       | 414/1713 [00:01<00:05, 233.27it/s]Saving vectors of label - 'bed':  26%|##5       | 444/1713 [00:01<00:05, 244.22it/s]Saving vectors of label - 'bed':  27%|##7       | 469/1713 [00:02<00:05, 226.58it/s]Saving vectors of label - 'bed':  29%|##8       | 493/1713 [00:02<00:05, 229.31it/s]Saving vectors of label - 'bed':  30%|###       | 517/1713 [00:02<00:05, 216.87it/s]Saving vectors of label - 'bed':  32%|###1      | 542/1713 [00:02<00:05, 224.34it/s]Saving vectors of label - 'bed':  33%|###3      | 571/1713 [00:02<00:04, 239.09it/s]Saving vectors of label - 'bed':  35%|###4      | 599/1713 [00:02<00:04, 240.66it/s]Saving vectors of label - 'bed':  36%|###6      | 624/1713 [00:02<00:04, 236.90it/s]Saving vectors of label - 'bed':  38%|###8      | 652/1713 [00:02<00:04, 242.33it/s]Saving vectors of label - 'bed':  40%|###9      | 681/1713 [00:02<00:04, 248.79it/s]Saving vectors of label - 'bed':  42%|####1     | 714/1713 [00:03<00:03, 257.20it/s]Saving vectors of label - 'bed':  43%|####3     | 740/1713 [00:03<00:03, 251.54it/s]Saving vectors of label - 'bed':  45%|####4     | 766/1713 [00:03<00:03, 252.74it/s]Saving vectors of label - 'bed':  46%|####6     | 795/1713 [00:03<00:03, 260.24it/s]Saving vectors of label - 'bed':  48%|####8     | 826/1713 [00:03<00:03, 270.11it/s]Saving vectors of label - 'bed':  50%|####9     | 854/1713 [00:03<00:03, 267.02it/s]Saving vectors of label - 'bed':  51%|#####1    | 881/1713 [00:03<00:03, 260.65it/s]Saving vectors of label - 'bed':  53%|#####3    | 908/1713 [00:03<00:03, 245.45it/s]Saving vectors of label - 'bed':  54%|#####4    | 933/1713 [00:03<00:03, 229.80it/s]Saving vectors of label - 'bed':  56%|#####6    | 963/1713 [00:04<00:03, 239.11it/s]Saving vectors of label - 'bed':  58%|#####7    | 988/1713 [00:04<00:03, 236.96it/s]Saving vectors of label - 'bed':  59%|#####9    | 1012/1713 [00:04<00:03, 224.72it/s]Saving vectors of label - 'bed':  60%|######    | 1035/1713 [00:04<00:03, 203.66it/s]Saving vectors of label - 'bed':  62%|######1   | 1056/1713 [00:04<00:03, 200.96it/s]Saving vectors of label - 'bed':  63%|######2   | 1077/1713 [00:04<00:03, 203.17it/s]Saving vectors of label - 'bed':  64%|######4   | 1098/1713 [00:04<00:03, 204.73it/s]Saving vectors of label - 'bed':  65%|######5   | 1120/1713 [00:04<00:02, 206.89it/s]Saving vectors of label - 'bed':  67%|######6   | 1146/1713 [00:04<00:02, 219.43it/s]Saving vectors of label - 'bed':  69%|######8   | 1175/1713 [00:05<00:02, 234.57it/s]Saving vectors of label - 'bed':  70%|#######   | 1202/1713 [00:05<00:02, 241.51it/s]Saving vectors of label - 'bed':  72%|#######2  | 1234/1713 [00:05<00:01, 253.74it/s]Saving vectors of label - 'bed':  74%|#######3  | 1262/1713 [00:05<00:01, 261.00it/s]Saving vectors of label - 'bed':  75%|#######5  | 1291/1713 [00:05<00:01, 262.23it/s]Saving vectors of label - 'bed':  77%|#######7  | 1321/1713 [00:05<00:01, 265.75it/s]Saving vectors of label - 'bed':  79%|#######8  | 1348/1713 [00:05<00:01, 265.03it/s]Saving vectors of label - 'bed':  80%|########  | 1378/1713 [00:05<00:01, 272.95it/s]Saving vectors of label - 'bed':  82%|########2 | 1407/1713 [00:05<00:01, 270.58it/s]Saving vectors of label - 'bed':  84%|########3 | 1435/1713 [00:06<00:01, 266.03it/s]Saving vectors of label - 'bed':  85%|########5 | 1464/1713 [00:06<00:00, 271.32it/s]Saving vectors of label - 'bed':  87%|########7 | 1492/1713 [00:06<00:00, 270.12it/s]Saving vectors of label - 'bed':  89%|########8 | 1520/1713 [00:06<00:00, 272.65it/s]Saving vectors of label - 'bed':  90%|######### | 1548/1713 [00:06<00:00, 255.99it/s]Saving vectors of label - 'bed':  92%|#########1| 1574/1713 [00:06<00:00, 239.42it/s]Saving vectors of label - 'bed':  93%|#########3| 1599/1713 [00:06<00:00, 226.09it/s]Saving vectors of label - 'bed':  95%|#########4| 1623/1713 [00:06<00:00, 222.43it/s]Saving vectors of label - 'bed':  96%|#########6| 1647/1713 [00:06<00:00, 221.03it/s]Saving vectors of label - 'bed':  97%|#########7| 1670/1713 [00:07<00:00, 221.81it/s]Saving vectors of label - 'bed':  99%|#########8| 1693/1713 [00:07<00:00, 221.43it/s]Saving vectors of label - 'bed': 100%|##########| 1713/1713 [00:07<00:00, 237.82it/s]
+Saving vectors of label - 'cat':   0%|          | 0/1733 [00:00<?, ?it/s]Saving vectors of label - 'cat':   2%|1         | 29/1733 [00:00<00:06, 263.33it/s]Saving vectors of label - 'cat':   4%|3         | 61/1733 [00:00<00:06, 271.49it/s]Saving vectors of label - 'cat':   5%|4         | 82/1733 [00:00<00:06, 241.52it/s]Saving vectors of label - 'cat':   6%|6         | 107/1733 [00:00<00:06, 237.50it/s]Saving vectors of label - 'cat':   8%|7         | 137/1733 [00:00<00:06, 247.47it/s]Saving vectors of label - 'cat':   9%|9         | 162/1733 [00:00<00:06, 244.22it/s]Saving vectors of label - 'cat':  11%|#         | 189/1733 [00:00<00:06, 245.04it/s]Saving vectors of label - 'cat':  12%|#2        | 214/1733 [00:00<00:06, 246.47it/s]Saving vectors of label - 'cat':  14%|#4        | 243/1733 [00:00<00:05, 255.57it/s]Saving vectors of label - 'cat':  16%|#5        | 271/1733 [00:01<00:05, 261.90it/s]Saving vectors of label - 'cat':  17%|#7        | 297/1733 [00:01<00:05, 248.78it/s]Saving vectors of label - 'cat':  19%|#8        | 322/1733 [00:01<00:05, 240.75it/s]Saving vectors of label - 'cat':  20%|##        | 348/1733 [00:01<00:05, 245.02it/s]Saving vectors of label - 'cat':  22%|##1       | 376/1733 [00:01<00:05, 252.68it/s]Saving vectors of label - 'cat':  23%|##3       | 404/1733 [00:01<00:05, 259.05it/s]Saving vectors of label - 'cat':  25%|##4       | 430/1733 [00:01<00:05, 249.84it/s]Saving vectors of label - 'cat':  26%|##6       | 459/1733 [00:01<00:04, 259.44it/s]Saving vectors of label - 'cat':  28%|##8       | 486/1733 [00:01<00:04, 257.50it/s]Saving vectors of label - 'cat':  30%|##9       | 513/1733 [00:02<00:04, 260.58it/s]Saving vectors of label - 'cat':  31%|###1      | 541/1733 [00:02<00:04, 264.04it/s]Saving vectors of label - 'cat':  33%|###2      | 571/1733 [00:02<00:04, 268.75it/s]Saving vectors of label - 'cat':  35%|###4      | 602/1733 [00:02<00:04, 273.01it/s]Saving vectors of label - 'cat':  36%|###6      | 630/1733 [00:02<00:04, 267.67it/s]Saving vectors of label - 'cat':  38%|###8      | 660/1733 [00:02<00:03, 269.66it/s]Saving vectors of label - 'cat':  40%|###9      | 689/1733 [00:02<00:03, 268.31it/s]Saving vectors of label - 'cat':  41%|####1     | 718/1733 [00:02<00:03, 265.62it/s]Saving vectors of label - 'cat':  43%|####3     | 747/1733 [00:02<00:03, 270.48it/s]Saving vectors of label - 'cat':  45%|####4     | 775/1733 [00:03<00:03, 256.26it/s]Saving vectors of label - 'cat':  46%|####6     | 802/1733 [00:03<00:03, 258.19it/s]Saving vectors of label - 'cat':  48%|####7     | 828/1733 [00:03<00:03, 258.14it/s]Saving vectors of label - 'cat':  49%|####9     | 854/1733 [00:03<00:03, 244.58it/s]Saving vectors of label - 'cat':  51%|#####     | 879/1733 [00:03<00:03, 239.56it/s]Saving vectors of label - 'cat':  52%|#####2    | 907/1733 [00:03<00:03, 244.29it/s]Saving vectors of label - 'cat':  54%|#####4    | 940/1733 [00:03<00:03, 259.08it/s]Saving vectors of label - 'cat':  56%|#####5    | 968/1733 [00:03<00:02, 264.12it/s]Saving vectors of label - 'cat':  58%|#####7    | 999/1733 [00:03<00:02, 272.79it/s]Saving vectors of label - 'cat':  59%|#####9    | 1030/1733 [00:03<00:02, 275.57it/s]Saving vectors of label - 'cat':  61%|######1   | 1061/1733 [00:04<00:02, 277.88it/s]Saving vectors of label - 'cat':  63%|######3   | 1093/1733 [00:04<00:02, 282.17it/s]Saving vectors of label - 'cat':  65%|######4   | 1122/1733 [00:04<00:02, 277.12it/s]Saving vectors of label - 'cat':  67%|######6   | 1155/1733 [00:04<00:02, 284.09it/s]Saving vectors of label - 'cat':  68%|######8   | 1187/1733 [00:04<00:01, 286.60it/s]Saving vectors of label - 'cat':  70%|#######   | 1219/1733 [00:04<00:01, 288.36it/s]Saving vectors of label - 'cat':  72%|#######2  | 1248/1733 [00:04<00:01, 281.03it/s]Saving vectors of label - 'cat':  74%|#######3  | 1277/1733 [00:04<00:01, 273.94it/s]Saving vectors of label - 'cat':  75%|#######5  | 1305/1733 [00:04<00:01, 270.71it/s]Saving vectors of label - 'cat':  77%|#######6  | 1333/1733 [00:05<00:01, 262.83it/s]Saving vectors of label - 'cat':  79%|#######8  | 1365/1733 [00:05<00:01, 271.14it/s]Saving vectors of label - 'cat':  81%|########  | 1396/1733 [00:05<00:01, 274.72it/s]Saving vectors of label - 'cat':  82%|########2 | 1428/1733 [00:05<00:01, 278.74it/s]Saving vectors of label - 'cat':  84%|########4 | 1461/1733 [00:05<00:00, 274.17it/s]Saving vectors of label - 'cat':  86%|########6 | 1493/1733 [00:05<00:00, 279.46it/s]Saving vectors of label - 'cat':  88%|########7 | 1522/1733 [00:05<00:00, 263.32it/s]Saving vectors of label - 'cat':  89%|########9 | 1549/1733 [00:05<00:00, 250.42it/s]Saving vectors of label - 'cat':  91%|######### | 1575/1733 [00:06<00:00, 238.14it/s]Saving vectors of label - 'cat':  92%|#########2| 1600/1733 [00:06<00:00, 239.39it/s]Saving vectors of label - 'cat':  94%|#########4| 1633/1733 [00:06<00:00, 255.22it/s]Saving vectors of label - 'cat':  96%|#########6| 1664/1733 [00:06<00:00, 263.10it/s]Saving vectors of label - 'cat':  98%|#########7| 1691/1733 [00:06<00:00, 262.20it/s]Saving vectors of label - 'cat':  99%|#########9| 1721/1733 [00:06<00:00, 271.42it/s]Saving vectors of label - 'cat': 100%|##########| 1733/1733 [00:06<00:00, 263.53it/s]
+Saving vectors of label - 'happy':   0%|          | 0/1742 [00:00<?, ?it/s]Saving vectors of label - 'happy':   1%|1         | 22/1742 [00:00<00:08, 201.25it/s]Saving vectors of label - 'happy':   3%|2         | 49/1742 [00:00<00:07, 213.06it/s]Saving vectors of label - 'happy':   4%|4         | 73/1742 [00:00<00:07, 220.22it/s]Saving vectors of label - 'happy':   5%|5         | 94/1742 [00:00<00:07, 215.90it/s]Saving vectors of label - 'happy':   7%|6         | 118/1742 [00:00<00:07, 214.02it/s]Saving vectors of label - 'happy':   9%|8         | 150/1742 [00:00<00:06, 232.78it/s]Saving vectors of label - 'happy':  10%|#         | 182/1742 [00:00<00:06, 248.02it/s]Saving vectors of label - 'happy':  12%|#2        | 213/1742 [00:00<00:05, 256.11it/s]Saving vectors of label - 'happy':  14%|#3        | 243/1742 [00:00<00:05, 252.97it/s]Saving vectors of label - 'happy':  15%|#5        | 268/1742 [00:01<00:06, 245.13it/s]Saving vectors of label - 'happy':  17%|#6        | 293/1742 [00:01<00:06, 239.94it/s]Saving vectors of label - 'happy':  18%|#8        | 321/1742 [00:01<00:05, 249.66it/s]Saving vectors of label - 'happy':  20%|#9        | 346/1742 [00:01<00:05, 242.70it/s]Saving vectors of label - 'happy':  21%|##1       | 372/1742 [00:01<00:05, 245.73it/s]Saving vectors of label - 'happy':  23%|##3       | 403/1742 [00:01<00:05, 255.25it/s]Saving vectors of label - 'happy':  25%|##5       | 436/1742 [00:01<00:04, 267.63it/s]Saving vectors of label - 'happy':  27%|##6       | 468/1742 [00:01<00:04, 274.67it/s]Saving vectors of label - 'happy':  29%|##8       | 499/1742 [00:01<00:04, 277.00it/s]Saving vectors of label - 'happy':  30%|###       | 531/1742 [00:02<00:04, 281.51it/s]Saving vectors of label - 'happy':  32%|###2      | 562/1742 [00:02<00:04, 282.13it/s]Saving vectors of label - 'happy':  34%|###3      | 591/1742 [00:02<00:04, 282.15it/s]Saving vectors of label - 'happy':  36%|###5      | 620/1742 [00:02<00:04, 274.94it/s]Saving vectors of label - 'happy':  37%|###7      | 648/1742 [00:02<00:04, 265.71it/s]Saving vectors of label - 'happy':  39%|###8      | 677/1742 [00:02<00:04, 263.75it/s]Saving vectors of label - 'happy':  41%|####      | 706/1742 [00:02<00:03, 264.17it/s]Saving vectors of label - 'happy':  42%|####2     | 738/1742 [00:02<00:03, 272.13it/s]Saving vectors of label - 'happy':  44%|####4     | 770/1742 [00:02<00:03, 277.95it/s]Saving vectors of label - 'happy':  46%|####6     | 802/1742 [00:03<00:03, 279.97it/s]Saving vectors of label - 'happy':  48%|####7     | 831/1742 [00:03<00:03, 275.40it/s]Saving vectors of label - 'happy':  49%|####9     | 859/1742 [00:03<00:03, 271.64it/s]Saving vectors of label - 'happy':  51%|#####     | 888/1742 [00:03<00:03, 273.20it/s]Saving vectors of label - 'happy':  53%|#####2    | 916/1742 [00:03<00:03, 270.65it/s]Saving vectors of label - 'happy':  54%|#####4    | 944/1742 [00:03<00:03, 241.79it/s]Saving vectors of label - 'happy':  56%|#####5    | 971/1742 [00:03<00:03, 249.11it/s]Saving vectors of label - 'happy':  57%|#####7    | 998/1742 [00:03<00:02, 253.07it/s]Saving vectors of label - 'happy':  59%|#####8    | 1027/1742 [00:03<00:02, 261.19it/s]Saving vectors of label - 'happy':  61%|######    | 1056/1742 [00:04<00:02, 266.45it/s]Saving vectors of label - 'happy':  62%|######2   | 1083/1742 [00:04<00:02, 266.14it/s]Saving vectors of label - 'happy':  64%|######3   | 1112/1742 [00:04<00:02, 271.53it/s]Saving vectors of label - 'happy':  66%|######5   | 1143/1742 [00:04<00:02, 275.60it/s]Saving vectors of label - 'happy':  67%|######7   | 1175/1742 [00:04<00:02, 280.52it/s]Saving vectors of label - 'happy':  69%|######9   | 1207/1742 [00:04<00:01, 283.34it/s]Saving vectors of label - 'happy':  71%|#######   | 1236/1742 [00:04<00:01, 271.72it/s]Saving vectors of label - 'happy':  73%|#######2  | 1266/1742 [00:04<00:01, 272.48it/s]Saving vectors of label - 'happy':  74%|#######4  | 1297/1742 [00:04<00:01, 275.72it/s]Saving vectors of label - 'happy':  76%|#######6  | 1329/1742 [00:05<00:01, 280.58it/s]Saving vectors of label - 'happy':  78%|#######7  | 1358/1742 [00:05<00:01, 275.20it/s]Saving vectors of label - 'happy':  80%|#######9  | 1386/1742 [00:05<00:01, 256.59it/s]Saving vectors of label - 'happy':  81%|########1 | 1412/1742 [00:05<00:01, 239.82it/s]Saving vectors of label - 'happy':  83%|########2 | 1439/1742 [00:05<00:01, 241.91it/s]Saving vectors of label - 'happy':  84%|########4 | 1471/1742 [00:05<00:01, 255.17it/s]Saving vectors of label - 'happy':  86%|########6 | 1501/1742 [00:05<00:00, 259.06it/s]Saving vectors of label - 'happy':  88%|########8 | 1533/1742 [00:05<00:00, 268.28it/s]Saving vectors of label - 'happy':  90%|########9 | 1565/1742 [00:05<00:00, 275.15it/s]Saving vectors of label - 'happy':  92%|#########1| 1598/1742 [00:06<00:00, 282.63it/s]Saving vectors of label - 'happy':  93%|#########3| 1628/1742 [00:06<00:00, 280.12it/s]Saving vectors of label - 'happy':  95%|#########5| 1659/1742 [00:06<00:00, 276.24it/s]Saving vectors of label - 'happy':  97%|#########6| 1687/1742 [00:06<00:00, 275.13it/s]Saving vectors of label - 'happy':  99%|#########8| 1718/1742 [00:06<00:00, 281.02it/s]Saving vectors of label - 'happy': 100%|##########| 1742/1742 [00:06<00:00, 266.10it/s]
+0.0
+WARNING: Logging before flag parsing goes to stderr.
+W0725 15:00:19.610191 17952 deprecation_wrapper.py:119] From C:\Users\HamzaEhsan\AppData\Local\Programs\Python\Python37\lib\site-packages\keras\backend\tensorflow_backend.py:74: The name tf.get_default_graph is deprecated. Please use tf.compat.v1.get_default_graph instead.
+
+W0725 15:00:19.622603 17952 deprecation_wrapper.py:119] From C:\Users\HamzaEhsan\AppData\Local\Programs\Python\Python37\lib\site-packages\keras\backend\tensorflow_backend.py:517: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+W0725 15:00:19.638227 17952 deprecation_wrapper.py:119] From C:\Users\HamzaEhsan\AppData\Local\Programs\Python\Python37\lib\site-packages\keras\backend\tensorflow_backend.py:4138: The name tf.random_uniform is deprecated. Please use tf.random.uniform instead.
+
+W0725 15:00:19.653881 17952 deprecation_wrapper.py:119] From C:\Users\HamzaEhsan\AppData\Local\Programs\Python\Python37\lib\site-packages\keras\optimizers.py:790: The name tf.train.Optimizer is deprecated. Please use tf.compat.v1.train.Optimizer instead.
+
+W0725 15:00:19.669512 17952 deprecation_wrapper.py:119] From C:\Users\HamzaEhsan\AppData\Local\Programs\Python\Python37\lib\site-packages\keras\backend\tensorflow_backend.py:3295: The name tf.log is deprecated. Please use tf.math.log instead.
+
+wandb: ERROR wandb.init hasn't been called, can't configure run
+W0725 15:00:19.731985 17952 deprecation.py:323] From C:\Users\HamzaEhsan\AppData\Local\Programs\Python\Python37\lib\site-packages\tensorflow\python\ops\math_grad.py:1250: add_dispatch_support.<locals>.wrapper (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+W0725 15:00:19.763227 17952 deprecation_wrapper.py:119] From C:\Users\HamzaEhsan\AppData\Local\Programs\Python\Python37\lib\site-packages\keras\backend\tensorflow_backend.py:986: The name tf.assign_add is deprecated. Please use tf.compat.v1.assign_add instead.
+
+Train on 3112 samples, validate on 2076 samples
+Epoch 1/50
+2019-07-25 15:00:19.804980: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+
+  32/3112 [..............................] - ETA: 10s - loss: 11.5296 - acc: 0.2500
+1504/3112 [=============>................] - ETA: 0s - loss: 10.4211 - acc: 0.3298 
+3112/3112 [==============================] - 0s 80us/step - loss: 9.8743 - acc: 0.3544 - val_loss: 8.8675 - val_acc: 0.4143
+Epoch 2/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 8.4677 - acc: 0.4688
+1888/3112 [=================>............] - ETA: 0s - loss: 8.1413 - acc: 0.4661
+3112/3112 [==============================] - 0s 37us/step - loss: 8.0152 - acc: 0.4737 - val_loss: 7.2832 - val_acc: 0.5169
+Epoch 3/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 6.9225 - acc: 0.5625
+1856/3112 [================>.............] - ETA: 0s - loss: 6.8676 - acc: 0.5474
+3112/3112 [==============================] - 0s 40us/step - loss: 7.0746 - acc: 0.5353 - val_loss: 6.7159 - val_acc: 0.5588
+Epoch 4/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 6.4622 - acc: 0.5938
+1824/3112 [================>.............] - ETA: 0s - loss: 6.6708 - acc: 0.5614
+3112/3112 [==============================] - 0s 39us/step - loss: 6.7054 - acc: 0.5591 - val_loss: 6.5176 - val_acc: 0.5747
+Epoch 5/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 7.0518 - acc: 0.5625
+1824/3112 [================>.............] - ETA: 0s - loss: 6.7405 - acc: 0.5609
+3112/3112 [==============================] - 0s 38us/step - loss: 6.5182 - acc: 0.5746 - val_loss: 6.3796 - val_acc: 0.5838
+Epoch 6/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 5.5052 - acc: 0.6250
+1984/3112 [==================>...........] - ETA: 0s - loss: 6.3124 - acc: 0.5837
+3112/3112 [==============================] - 0s 33us/step - loss: 6.3969 - acc: 0.5774 - val_loss: 6.3607 - val_acc: 0.5838
+Epoch 7/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 7.0640 - acc: 0.5625
+1920/3112 [=================>............] - ETA: 0s - loss: 6.2125 - acc: 0.5969
+3112/3112 [==============================] - 0s 36us/step - loss: 6.2711 - acc: 0.5913 - val_loss: 6.3602 - val_acc: 0.5882
+Epoch 8/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 7.1152 - acc: 0.5312
+1888/3112 [=================>............] - ETA: 0s - loss: 6.3315 - acc: 0.5890
+3112/3112 [==============================] - 0s 45us/step - loss: 6.2425 - acc: 0.5948 - val_loss: 6.3735 - val_acc: 0.5867
+Epoch 9/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 5.1233 - acc: 0.6562
+2112/3112 [===================>..........] - ETA: 0s - loss: 6.2906 - acc: 0.5947
+3112/3112 [==============================] - 0s 35us/step - loss: 6.2347 - acc: 0.5964 - val_loss: 6.2827 - val_acc: 0.5925
+Epoch 10/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 5.5623 - acc: 0.6562
+1792/3112 [================>.............] - ETA: 0s - loss: 6.1762 - acc: 0.6027
+3112/3112 [==============================] - 0s 35us/step - loss: 6.1591 - acc: 0.6025 - val_loss: 6.2469 - val_acc: 0.5939
+Epoch 11/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 6.6014 - acc: 0.5625
+1760/3112 [===============>..............] - ETA: 0s - loss: 6.2494 - acc: 0.5875
+3112/3112 [==============================] - 0s 37us/step - loss: 6.1267 - acc: 0.5980 - val_loss: 6.2142 - val_acc: 0.5987
+Epoch 12/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 5.0253 - acc: 0.6875
+2272/3112 [====================>.........] - ETA: 0s - loss: 6.1620 - acc: 0.6012
+3112/3112 [==============================] - 0s 35us/step - loss: 6.0573 - acc: 0.6070 - val_loss: 6.2079 - val_acc: 0.5973
+Epoch 13/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 6.5187 - acc: 0.5938
+1760/3112 [===============>..............] - ETA: 0s - loss: 6.0604 - acc: 0.6057
+3112/3112 [==============================] - 0s 42us/step - loss: 6.0924 - acc: 0.6044 - val_loss: 6.2143 - val_acc: 0.5925
+Epoch 14/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 3.5769 - acc: 0.7500
+1856/3112 [================>.............] - ETA: 0s - loss: 6.0163 - acc: 0.6072
+3112/3112 [==============================] - 0s 40us/step - loss: 6.0031 - acc: 0.6089 - val_loss: 6.2070 - val_acc: 0.5959
+Epoch 15/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 4.4742 - acc: 0.6250
+1184/3112 [==========>...................] - ETA: 0s - loss: 5.6391 - acc: 0.6326
+2656/3112 [========================>.....] - ETA: 0s - loss: 6.0161 - acc: 0.6054
+3112/3112 [==============================] - 0s 46us/step - loss: 5.9892 - acc: 0.6073 - val_loss: 6.1520 - val_acc: 0.5983
+Epoch 16/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 7.5565 - acc: 0.5312
+1856/3112 [================>.............] - ETA: 0s - loss: 5.8937 - acc: 0.6196
+3112/3112 [==============================] - 0s 36us/step - loss: 6.0098 - acc: 0.6102 - val_loss: 6.2161 - val_acc: 0.5930
+Epoch 17/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 8.0596 - acc: 0.5000
+2048/3112 [==================>...........] - ETA: 0s - loss: 5.9589 - acc: 0.6123
+3112/3112 [==============================] - 0s 30us/step - loss: 5.9969 - acc: 0.6109 - val_loss: 6.1342 - val_acc: 0.5983
+Epoch 18/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 5.5430 - acc: 0.6562
+2336/3112 [=====================>........] - ETA: 0s - loss: 5.8622 - acc: 0.6233
+3112/3112 [==============================] - 0s 34us/step - loss: 5.9565 - acc: 0.6160 - val_loss: 6.1483 - val_acc: 0.6002
+Epoch 19/50
+
+  32/3112 [..............................] - ETA: 1s - loss: 5.0385 - acc: 0.6875
+2368/3112 [=====================>........] - ETA: 0s - loss: 5.9173 - acc: 0.6178
+3112/3112 [==============================] - 0s 40us/step - loss: 5.9593 - acc: 0.6147 - val_loss: 6.2509 - val_acc: 0.5906
+Epoch 20/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 7.7927 - acc: 0.5000
+1696/3112 [===============>..............] - ETA: 0s - loss: 5.9874 - acc: 0.6126
+3112/3112 [==============================] - 0s 41us/step - loss: 5.9669 - acc: 0.6096 - val_loss: 6.2021 - val_acc: 0.5934
+Epoch 21/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 5.5406 - acc: 0.6562
+2304/3112 [=====================>........] - ETA: 0s - loss: 5.9007 - acc: 0.6172
+3112/3112 [==============================] - 0s 35us/step - loss: 5.9409 - acc: 0.6144 - val_loss: 6.2416 - val_acc: 0.5934
+Epoch 22/50
+
+  32/3112 [..............................] - ETA: 1s - loss: 4.7418 - acc: 0.6875
+2304/3112 [=====================>........] - ETA: 0s - loss: 5.9012 - acc: 0.6150
+3112/3112 [==============================] - 0s 40us/step - loss: 5.9662 - acc: 0.6112 - val_loss: 6.1805 - val_acc: 0.5983
+Epoch 23/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 5.2469 - acc: 0.6562
+1824/3112 [================>.............] - ETA: 0s - loss: 5.9087 - acc: 0.6157
+3112/3112 [==============================] - 0s 40us/step - loss: 6.0304 - acc: 0.6080 - val_loss: 6.2439 - val_acc: 0.5949
+Epoch 24/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 4.5420 - acc: 0.7188
+1408/3112 [============>.................] - ETA: 0s - loss: 5.7167 - acc: 0.6271
+3112/3112 [==============================] - 0s 45us/step - loss: 5.9429 - acc: 0.6134 - val_loss: 6.2000 - val_acc: 0.5939
+Epoch 25/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 6.0443 - acc: 0.6250
+1632/3112 [==============>...............] - ETA: 0s - loss: 6.2379 - acc: 0.5962
+3112/3112 [==============================] - 0s 41us/step - loss: 5.9818 - acc: 0.6118 - val_loss: 6.2579 - val_acc: 0.5944
+Epoch 26/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 7.0938 - acc: 0.5312
+1568/3112 [==============>...............] - ETA: 0s - loss: 5.7598 - acc: 0.6276
+3112/3112 [==============================] - 0s 40us/step - loss: 5.9041 - acc: 0.6189 - val_loss: 6.1541 - val_acc: 0.5987
+Epoch 27/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 5.0391 - acc: 0.6875
+1856/3112 [================>.............] - ETA: 0s - loss: 5.8848 - acc: 0.6207
+3112/3112 [==============================] - 0s 37us/step - loss: 5.9147 - acc: 0.6179 - val_loss: 6.2554 - val_acc: 0.5891
+Epoch 28/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 7.3667 - acc: 0.5000
+1600/3112 [==============>...............] - ETA: 0s - loss: 5.5979 - acc: 0.6375
+3112/3112 [==============================] - 0s 41us/step - loss: 5.9316 - acc: 0.6176 - val_loss: 6.1354 - val_acc: 0.6021
+Epoch 29/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 7.0517 - acc: 0.5625
+1504/3112 [=============>................] - ETA: 0s - loss: 5.7743 - acc: 0.6283
+3112/3112 [==============================] - 0s 40us/step - loss: 5.9328 - acc: 0.6157 - val_loss: 6.3005 - val_acc: 0.5862
+Epoch 30/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 5.1510 - acc: 0.6562
+2368/3112 [=====================>........] - ETA: 0s - loss: 5.9737 - acc: 0.6144
+3112/3112 [==============================] - 0s 30us/step - loss: 5.9135 - acc: 0.6173 - val_loss: 6.2213 - val_acc: 0.5949
+Epoch 31/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 3.5316 - acc: 0.7812
+2080/3112 [===================>..........] - ETA: 0s - loss: 5.7499 - acc: 0.6264
+3112/3112 [==============================] - 0s 35us/step - loss: 5.8832 - acc: 0.6189 - val_loss: 6.1604 - val_acc: 0.5992
+Epoch 32/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 7.0517 - acc: 0.5625
+1792/3112 [================>.............] - ETA: 0s - loss: 5.8193 - acc: 0.6222
+3112/3112 [==============================] - 0s 40us/step - loss: 5.9781 - acc: 0.6112 - val_loss: 6.1487 - val_acc: 0.5978
+Epoch 33/50
+
+  32/3112 [..............................] - ETA: 1s - loss: 11.5878 - acc: 0.2812
+2144/3112 [===================>..........] - ETA: 0s - loss: 5.9280 - acc: 0.6180 
+3112/3112 [==============================] - 0s 41us/step - loss: 5.9240 - acc: 0.6166 - val_loss: 6.1421 - val_acc: 0.6007
+Epoch 34/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 6.5480 - acc: 0.5938
+1920/3112 [=================>............] - ETA: 0s - loss: 5.9692 - acc: 0.6151
+3112/3112 [==============================] - 0s 35us/step - loss: 5.9125 - acc: 0.6173 - val_loss: 6.1943 - val_acc: 0.5954
+Epoch 35/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 5.0369 - acc: 0.6875
+2016/3112 [==================>...........] - ETA: 0s - loss: 5.9657 - acc: 0.6126
+3112/3112 [==============================] - 0s 35us/step - loss: 5.8863 - acc: 0.6173 - val_loss: 6.1292 - val_acc: 0.6007
+Epoch 36/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 5.0370 - acc: 0.6875
+1856/3112 [================>.............] - ETA: 0s - loss: 5.9163 - acc: 0.6175
+3112/3112 [==============================] - 0s 40us/step - loss: 5.9237 - acc: 0.6166 - val_loss: 6.1719 - val_acc: 0.5987
+Epoch 37/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 6.7332 - acc: 0.5625
+2016/3112 [==================>...........] - ETA: 0s - loss: 6.0089 - acc: 0.6091
+3112/3112 [==============================] - 0s 35us/step - loss: 5.9485 - acc: 0.6128 - val_loss: 6.1776 - val_acc: 0.5968
+Epoch 38/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 4.2902 - acc: 0.6875
+1600/3112 [==============>...............] - ETA: 0s - loss: 5.9353 - acc: 0.6175
+3112/3112 [==============================] - 0s 37us/step - loss: 5.9558 - acc: 0.6147 - val_loss: 6.1727 - val_acc: 0.5944
+Epoch 39/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 4.2372 - acc: 0.7188
+1664/3112 [===============>..............] - ETA: 0s - loss: 5.9882 - acc: 0.6118
+3112/3112 [==============================] - 0s 42us/step - loss: 5.8592 - acc: 0.6208 - val_loss: 6.1544 - val_acc: 0.5987
+Epoch 40/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 7.0517 - acc: 0.5625
+2048/3112 [==================>...........] - ETA: 0s - loss: 5.8034 - acc: 0.6240
+3112/3112 [==============================] - 0s 38us/step - loss: 5.9256 - acc: 0.6150 - val_loss: 6.1539 - val_acc: 0.6012
+Epoch 41/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 5.9760 - acc: 0.5938
+2016/3112 [==================>...........] - ETA: 0s - loss: 6.0576 - acc: 0.6106
+3112/3112 [==============================] - 0s 35us/step - loss: 5.9069 - acc: 0.6199 - val_loss: 6.1383 - val_acc: 0.5978
+Epoch 42/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 5.0456 - acc: 0.6875
+2112/3112 [===================>..........] - ETA: 0s - loss: 6.0536 - acc: 0.6080
+3112/3112 [==============================] - 0s 30us/step - loss: 5.8889 - acc: 0.6183 - val_loss: 6.1395 - val_acc: 0.5987
+Epoch 43/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 5.9672 - acc: 0.5625
+1664/3112 [===============>..............] - ETA: 0s - loss: 5.7757 - acc: 0.6280
+3112/3112 [==============================] - 0s 40us/step - loss: 5.8845 - acc: 0.6183 - val_loss: 6.1708 - val_acc: 0.5959
+Epoch 44/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 5.5525 - acc: 0.6562
+1632/3112 [==============>...............] - ETA: 0s - loss: 5.8200 - acc: 0.6244
+3112/3112 [==============================] - 0s 42us/step - loss: 5.8486 - acc: 0.6221 - val_loss: 6.1961 - val_acc: 0.5963
+Epoch 45/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 6.0443 - acc: 0.6250
+1120/3112 [=========>....................] - ETA: 0s - loss: 5.8851 - acc: 0.6232
+3008/3112 [===========================>..] - ETA: 0s - loss: 5.8524 - acc: 0.6217
+3112/3112 [==============================] - 0s 44us/step - loss: 5.8355 - acc: 0.6228 - val_loss: 6.1435 - val_acc: 0.5978
+Epoch 46/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 7.0517 - acc: 0.5625
+1824/3112 [================>.............] - ETA: 0s - loss: 5.6779 - acc: 0.6310
+3112/3112 [==============================] - 0s 38us/step - loss: 5.8513 - acc: 0.6228 - val_loss: 6.1640 - val_acc: 0.5987
+Epoch 47/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 7.5555 - acc: 0.5312
+2624/3112 [========================>.....] - ETA: 0s - loss: 5.7878 - acc: 0.6235
+3112/3112 [==============================] - 0s 30us/step - loss: 5.8384 - acc: 0.6221 - val_loss: 6.1758 - val_acc: 0.5963
+Epoch 48/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 6.1899 - acc: 0.5938
+1984/3112 [==================>...........] - ETA: 0s - loss: 5.8007 - acc: 0.6235
+3112/3112 [==============================] - 0s 33us/step - loss: 5.8641 - acc: 0.6215 - val_loss: 6.1346 - val_acc: 0.5973
+Epoch 49/50
+
+  32/3112 [..............................] - ETA: 0s - loss: 6.0450 - acc: 0.6250
+1696/3112 [===============>..............] - ETA: 0s - loss: 5.8570 - acc: 0.6226
+3112/3112 [==============================] - 0s 39us/step - loss: 5.8837 - acc: 0.6189 - val_loss: 6.2209 - val_acc: 0.5934
+Epoch 50/50
+
+  32/3112 [..............................] - ETA: 1s - loss: 6.3405 - acc: 0.5938
+2368/3112 [=====================>........] - ETA: 0s - loss: 5.8442 - acc: 0.6216
+3112/3112 [==============================] - 0s 42us/step - loss: 5.8795 - acc: 0.6199 - val_loss: 6.1359 - val_acc: 0.5997
+Traceback (most recent call last):
+  File "audio.py", line 67, in <module>
+    print(model.fit(X_train, y_train_hot, epochs=config.epochs, validation_data=(X_test, y_test_hot), callbacks=[WandbCallback(data_type="image", labels=labels)]))
+  File "C:\Users\HamzaEhsan\AppData\Local\Programs\Python\Python37\lib\site-packages\keras\engine\training.py", line 952, in fit
+    batch_size=batch_size)
+  File "C:\Users\HamzaEhsan\AppData\Local\Programs\Python\Python37\lib\site-packages\keras\engine\training.py", line 751, in _standardize_user_data
+    exception_prefix='input')
+  File "C:\Users\HamzaEhsan\AppData\Local\Programs\Python\Python37\lib\site-packages\keras\engine\training_utils.py", line 138, in standardize_input_data
+    str(data_shape))
+ValueError: Error when checking input: expected lstm_1_input to have shape (11, 1) but got array with shape (20, 11)

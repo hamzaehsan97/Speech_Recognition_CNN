@@ -1,0 +1,4 @@
+  File "audio.py", line 65
+    model.add(Dropout(0.2))
+        ^
+SyntaxError: invalid syntax

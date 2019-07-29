@@ -1,0 +1,101 @@
+{
+    "graph": {
+        "_type": "graph",
+        "format": "keras",
+        "nodes": [
+            {
+                "name": "flatten_1_input",
+                "id": "flatten_1_input",
+                "class_name": "InputLayer",
+                "output_shape": [
+                    null,
+                    20,
+                    11
+                ],
+                "num_parameters": 0
+            },
+            {
+                "name": "flatten_1",
+                "id": "flatten_1",
+                "class_name": "Flatten",
+                "output_shape": [
+                    null,
+                    220
+                ],
+                "num_parameters": 0
+            },
+            {
+                "name": "dense_1",
+                "id": "dense_1",
+                "class_name": "Dense",
+                "output_shape": [
+                    null,
+                    3
+                ],
+                "num_parameters": 663
+            }
+        ],
+        "edges": [
+            [
+                "flatten_1_input",
+                "flatten_1"
+            ],
+            [
+                "flatten_1",
+                "dense_1"
+            ]
+        ]
+    },
+    "acc": 0.8544344473007712,
+    "val_loss": 2.5685198162332434,
+    "examples": {
+        "width": 11,
+        "height": 20,
+        "count": 36,
+        "_type": "images",
+        "captions": [
+            "bed",
+            "happy",
+            "cat",
+            "cat",
+            "happy",
+            "happy",
+            "cat",
+            "cat",
+            "happy",
+            "cat",
+            "cat",
+            "happy",
+            "happy",
+            "bed",
+            "cat",
+            "happy",
+            "cat",
+            "happy",
+            "cat",
+            "cat",
+            "cat",
+            "happy",
+            "cat",
+            "bed",
+            "cat",
+            "happy",
+            "happy",
+            "cat",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "cat",
+            "happy",
+            "bed",
+            "cat"
+        ]
+    },
+    "epoch": 49,
+    "loss": 1.500725978743246,
+    "_step": 49,
+    "_timestamp": 1564170686.4697542,
+    "val_acc": 0.7856454721765022,
+    "_runtime": 48.94502258300781
+}
