@@ -1,0 +1,23 @@
+{
+    "root": "/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition",
+    "program": "/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition/main.py",
+    "git": {
+        "remote": "https://github.com/hamzaehsan97/speechRecognition.git",
+        "commit": "c3ef020de64c129fb3fc24d4cd199444522176b4"
+    },
+    "email": null,
+    "startedAt": "2019-08-23T21:22:23.784261",
+    "host": "Hamzas-MacBook-Pro.local",
+    "username": "hamzaehsan",
+    "os": "Darwin-18.7.0-x86_64-i386-64bit",
+    "python": "3.7.3",
+    "executable": "/Users/hamzaehsan/anaconda3/bin/python",
+    "cpu_count": 4,
+    "args": [],
+    "state": "finished",
+    "jobType": null,
+    "mode": "run",
+    "project": "speechRecognition",
+    "heartbeatAt": "2019-08-23T21:23:14.908461",
+    "exitcode": 0
+}

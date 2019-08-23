@@ -1,4 +1,5 @@
 from audio import *
+from predict import *
 import sounddevice as sd
 from scipy.io.wavfile import write
 
@@ -11,7 +12,9 @@ def testRecord():
     myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=2)
     sd.wait()  # Wait until recording is finished
     write('output.wav', fs, myrecording)
-    funct()
+    predictRecording()
+
+    
 print("PRESS RETURN TO RECORD")
 key = input("PRESS RETURN TO RECORD :")
 if key == "":
