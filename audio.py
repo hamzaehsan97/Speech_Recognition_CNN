@@ -70,14 +70,15 @@ def funct():
     wandb.init()
     model.fit(X_train, y_train_hot, epochs=config.epochs, validation_data=(X_test, y_test_hot), callbacks=[WandbCallback(data_type="image", labels=labels)])
     prediction(x_final , model)
+    model.save("model.h5")
 
 
 def prediction(x_final, model):
     y_final_oneHotEncoded= model.predict_classes(x_final, batch_size=1, verbose=0)
     y_final_prob= model.predict_proba(x_final, batch_size=1, verbose=0)
-    y_final_prob= np.round(y_final_prob,4)
+    y_final_prob= np.round(y_final_prob,2)
     predictNumber = y_final_oneHotEncoded[0]
-    listNames = ["bed","happy","cat"]
+    listNames = ["happy","bed","cat"]
     print(f"PREDICTION NUMBER = {predictNumber}")
     print(f"PREDICTION = {listNames[predictNumber]}")
     print(f"PREDICTION Prob= {y_final_prob}")

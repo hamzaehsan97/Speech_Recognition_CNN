@@ -3,12 +3,6 @@ import sounddevice as sd
 from scipy.io.wavfile import write
 
 
-
-
-
-
-
-
 def testRecord():
     print("Recording for two seconds")    
     fs = 44100  # Sample rate
