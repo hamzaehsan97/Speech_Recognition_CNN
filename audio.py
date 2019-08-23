@@ -50,7 +50,9 @@ def funct():
     x_final_vector_vector = []
     x_final_vector = wav2mfcc('output.wav')
     x_final_vector_vector.append(x_final_vector)
+    # x_final_vector_vector[0] = x_final_vector
     x_final = np.array(x_final_vector_vector)
+    x_final = x_final.reshape(x_final.shape[0], config.buckets, config.max_len)
     # print predict sample shape
     print(x_final.shape)
     # x_final = x_final.reshape(config.buckets, config.max_len) 
@@ -63,15 +65,19 @@ def funct():
     model.add(Flatten(input_shape=input_shape))
 
     model.add(Dense(num_classes, activation='softmax'))
-    model.compile(loss="categorical_crossentropy",
-                    optimizer="adam",
-                    metrics=['accuracy'])
+    model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=['accuracy'])
 
     wandb.init()
     model.fit(X_train, y_train_hot, epochs=config.epochs, validation_data=(X_test, y_test_hot), callbacks=[WandbCallback(data_type="image", labels=labels)])
+    prediction(x_final , model)
 
 
+def prediction(x_final, model):
     y_final_oneHotEncoded= model.predict_classes(x_final, batch_size=1, verbose=0)
-    y_final_num = argmax(y_final_oneHotEncoded)
-    print(y_final_num)
-    plot_model(model, to_file="model.png")
+    y_final_prob= model.predict_proba(x_final, batch_size=1, verbose=0)
+    np.round(y_final_prob,3)
+    predictNumber = y_final_oneHotEncoded[0]
+    listNames = ["bed","happy","cat"]
+    print(f"PREDICTION NUMBER = {predictNumber}")
+    print(f"PREDICTION = {listNames[predictNumber]}")
+    print(f"PREDICTION Prob= {y_final_prob}")

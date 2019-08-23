@@ -1,0 +1,12 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.8.5
+buckets:
+  desc: null
+  value: 20
+max_len:
+  desc: null
+  value: 11
