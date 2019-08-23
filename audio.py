@@ -75,7 +75,7 @@ def funct():
 def prediction(x_final, model):
     y_final_oneHotEncoded= model.predict_classes(x_final, batch_size=1, verbose=0)
     y_final_prob= model.predict_proba(x_final, batch_size=1, verbose=0)
-    np.round(y_final_prob,3)
+    y_final_prob= np.round(y_final_prob,4)
     predictNumber = y_final_oneHotEncoded[0]
     listNames = ["bed","happy","cat"]
     print(f"PREDICTION NUMBER = {predictNumber}")
