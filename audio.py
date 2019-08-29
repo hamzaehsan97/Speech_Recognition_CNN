@@ -16,69 +16,67 @@ from numpy import argmax
 import matplotlib.pyplot as plt
 from keras.utils import plot_model
 import graphviz
+from keras.models import load_model
 
 
-def funct():
-    wandb.init()
-    config = wandb.config
+print("Processing Data")
+wandb.init()
+config = wandb.config
 
-    config.max_len = 11
-    config.buckets = 20
+config.max_len = 11
+config.buckets = 20
 
-    # Save data to array file first
-    save_data_to_array(max_len=config.max_len, n_mfcc=config.buckets)
+# Save data to array file first
+save_data_to_array(max_len=config.max_len, n_mfcc=config.buckets)
 
-    labels=["bed", "happy", "cat"]
-    X_train, X_test, y_train, y_test = get_train_test()
-    # # Feature dimension
-    channels = 1
-    config.epochs = 50
-    config.batch_size = 100
-
-    num_classes = 3
-    X_train = X_train.reshape(X_train.shape[0], config.buckets, config.max_len, channels)
-    X_test = X_test.reshape(X_test.shape[0], config.buckets, config.max_len, channels)
-    plt.imshow(X_train[100, :, :, 0])
-    y_train_hot = to_categorical(y_train)
-    y_test_hot = to_categorical(y_test)
-
-    X_train = X_train.reshape(X_train.shape[0], config.buckets, config.max_len)
-    X_test = X_test.reshape(X_test.shape[0], config.buckets, config.max_len)
+labels=["bed", "happy", "cat"]
+X_train, X_test, y_train, y_test = get_train_test()
+# # Feature dimension
+channels = 1
+config.epochs = 50
+config.batch_size = 100
 
 
-    x_final_vector = []
-    x_final_vector_vector = []
-    x_final_vector = wav2mfcc('output.wav')
-    x_final_vector_vector.append(x_final_vector)
-    # x_final_vector_vector[0] = x_final_vector
-    x_final = np.array(x_final_vector_vector)
-    x_final = x_final.reshape(x_final.shape[0], config.buckets, config.max_len)
-    # print predict sample shape
-    print(x_final.shape)
-    # x_final = x_final.reshape(config.buckets, config.max_len) 
+num_classes = 3
+X_train = X_train.reshape(X_train.shape[0], config.buckets, config.max_len, channels)
+X_test = X_test.reshape(X_test.shape[0], config.buckets, config.max_len, channels)
 
-    model = Sequential()
-    input_shape = X_train[0].shape
-    # print predict sample shape
-    print(input_shape)
+y_train_hot = to_categorical(y_train)
+y_test_hot = to_categorical(y_test)
 
-    model.add(Flatten(input_shape=input_shape))
+model = Sequential()
 
-    model.add(Dense(num_classes, activation='softmax'))
-    model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=['accuracy'])
+print("Training Model")
 
-    wandb.init()
-    model.fit(X_train, y_train_hot, epochs=config.epochs, validation_data=(X_test, y_test_hot), callbacks=[WandbCallback(data_type="image", labels=labels)])
-    prediction(x_final , model)
-    model.save("model.h5")
+input_shape = X_train[0].shape
+model.add(Conv2D(32,
+    (3, 3),
+    input_shape=input_shape,
+    activation='relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.4))
+model.add(Flatten())
+model.add(Dense(128, activation='relu'))
+model.add(Dropout(0.4))
+model.add(Dense(num_classes, activation='softmax'))
+
+model.compile(loss='categorical_crossentropy', optimizer='adam',
+                metrics=['accuracy'])
+
+wandb.init()
+model.fit(X_train, y_train_hot, epochs=config.epochs, validation_data=(X_test, y_test_hot), callbacks=[WandbCallback(data_type="image", labels=labels)])
+
+scores = model.evaluate(X_test,y_test_hot, verbose=0)
+
+print("%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
+
+# serialize model to JSON
+model_json = model.to_json()
+with open("model.json", "w") as json_file:
+    json_file.write(model_json)
+# serialize weights to HDF5
+model.save_weights("model.h5")
+print("Saved model to model.h5")
 
 
-def prediction(x_final, model):
-    y_final_oneHotEncoded= model.predict_classes(x_final, batch_size=1, verbose=0)
-    y_final_prob= model.predict_proba(x_final, batch_size=1, verbose=0)
-    y_final_prob= np.round(y_final_prob,2)
-    predictNumber = y_final_oneHotEncoded[0]
-    listNames = ["happy","bed","cat"]
-    print(f"PREDICTION NUMBER = {predictNumber}")
-    print(f"PREDICTION = {listNames[predictNumber]}")
-    print(f"PREDICTION Prob= {y_final_prob}")
+

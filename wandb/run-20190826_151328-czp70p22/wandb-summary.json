@@ -1,0 +1,115 @@
+{
+    "graph": {
+        "_type": "graph",
+        "format": "keras",
+        "nodes": [
+            {
+                "name": "flatten_1_input",
+                "id": "flatten_1_input",
+                "class_name": "InputLayer",
+                "output_shape": [
+                    null,
+                    20,
+                    11
+                ],
+                "num_parameters": 0
+            },
+            {
+                "name": "flatten_1",
+                "id": "flatten_1",
+                "class_name": "Flatten",
+                "output_shape": [
+                    null,
+                    220
+                ],
+                "num_parameters": 0
+            },
+            {
+                "name": "dense_1",
+                "id": "dense_1",
+                "class_name": "Dense",
+                "output_shape": [
+                    null,
+                    3
+                ],
+                "num_parameters": 663
+            },
+            {
+                "name": "dense_2",
+                "id": "dense_2",
+                "class_name": "Dense",
+                "output_shape": [
+                    null,
+                    3
+                ],
+                "num_parameters": 12
+            }
+        ],
+        "edges": [
+            [
+                "flatten_1_input",
+                "flatten_1"
+            ],
+            [
+                "flatten_1",
+                "dense_1"
+            ],
+            [
+                "dense_1",
+                "dense_2"
+            ]
+        ]
+    },
+    "val_acc": 0.32851637753448043,
+    "examples": {
+        "width": 11,
+        "height": 20,
+        "count": 36,
+        "_type": "images",
+        "captions": [
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat",
+            "cat"
+        ]
+    },
+    "val_loss": 1.0999390424331488,
+    "acc": 0.34093830334190234,
+    "_timestamp": 1566832454.870125,
+    "_step": 27,
+    "epoch": 27,
+    "_runtime": 47.14587116241455,
+    "loss": 1.0978327545224855
+}

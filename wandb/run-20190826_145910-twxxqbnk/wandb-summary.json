@@ -1,0 +1,116 @@
+{
+    "graph": {
+        "_type": "graph",
+        "format": "keras",
+        "nodes": [
+            {
+                "name": "sequential_1_input",
+                "id": "sequential_1_input",
+                "class_name": "InputLayer",
+                "output_shape": [
+                    null,
+                    20,
+                    11
+                ],
+                "num_parameters": 0
+            },
+            {
+                "name": "dense_1",
+                "id": "dense_1",
+                "class_name": "Dense",
+                "output_shape": [
+                    null,
+                    20,
+                    3
+                ],
+                "num_parameters": 36
+            },
+            {
+                "name": "flatten_1",
+                "id": "flatten_1",
+                "class_name": "Flatten",
+                "output_shape": [
+                    null,
+                    60
+                ],
+                "num_parameters": 0
+            },
+            {
+                "name": "dense_2",
+                "id": "dense_2",
+                "class_name": "Dense",
+                "output_shape": [
+                    null,
+                    3
+                ],
+                "num_parameters": 183
+            }
+        ],
+        "edges": [
+            [
+                "sequential_1_input",
+                "dense_1"
+            ],
+            [
+                "dense_1",
+                "flatten_1"
+            ],
+            [
+                "flatten_1",
+                "dense_2"
+            ]
+        ]
+    },
+    "acc": 0.6944087403598972,
+    "loss": 0.731401109450274,
+    "_timestamp": 1566831619.420622,
+    "val_acc": 0.6734104046242775,
+    "_runtime": 69.87609505653381,
+    "epoch": 49,
+    "_step": 49,
+    "val_loss": 0.7609532062028874,
+    "examples": {
+        "width": 11,
+        "height": 20,
+        "count": 36,
+        "_type": "images",
+        "captions": [
+            "cat",
+            "happy",
+            "cat",
+            "happy",
+            "bed",
+            "cat",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "cat",
+            "bed",
+            "happy",
+            "bed",
+            "happy",
+            "cat",
+            "bed",
+            "bed",
+            "bed",
+            "cat",
+            "happy",
+            "happy",
+            "happy",
+            "cat",
+            "happy",
+            "cat",
+            "happy",
+            "cat",
+            "cat",
+            "happy",
+            "happy",
+            "cat",
+            "happy",
+            "bed",
+            "happy"
+        ]
+    }
+}

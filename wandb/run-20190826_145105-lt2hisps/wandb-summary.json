@@ -1,0 +1,101 @@
+{
+    "graph": {
+        "_type": "graph",
+        "format": "keras",
+        "nodes": [
+            {
+                "name": "flatten_1_input",
+                "id": "flatten_1_input",
+                "class_name": "InputLayer",
+                "output_shape": [
+                    null,
+                    20,
+                    11
+                ],
+                "num_parameters": 0
+            },
+            {
+                "name": "flatten_1",
+                "id": "flatten_1",
+                "class_name": "Flatten",
+                "output_shape": [
+                    null,
+                    220
+                ],
+                "num_parameters": 0
+            },
+            {
+                "name": "dense_1",
+                "id": "dense_1",
+                "class_name": "Dense",
+                "output_shape": [
+                    null,
+                    3
+                ],
+                "num_parameters": 663
+            }
+        ],
+        "edges": [
+            [
+                "flatten_1_input",
+                "flatten_1"
+            ],
+            [
+                "flatten_1",
+                "dense_1"
+            ]
+        ]
+    },
+    "epoch": 49,
+    "val_acc": 0.3473025046446879,
+    "_timestamp": 1566831133.337035,
+    "loss": NaN,
+    "_step": 49,
+    "acc": 0.32519280205655526,
+    "examples": {
+        "width": 11,
+        "height": 20,
+        "count": 36,
+        "_type": "images",
+        "captions": [
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed"
+        ]
+    },
+    "_runtime": 69.57462096214294,
+    "val_loss": NaN
+}

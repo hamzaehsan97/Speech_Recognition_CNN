@@ -1,0 +1,394 @@
+diff --git a/.DS_Store b/.DS_Store
+index 0b191ac..e0a7367 100644
+Binary files a/.DS_Store and b/.DS_Store differ
+diff --git a/__pycache__/audio.cpython-37.pyc b/__pycache__/audio.cpython-37.pyc
+index 0cfba28..b34c83b 100644
+Binary files a/__pycache__/audio.cpython-37.pyc and b/__pycache__/audio.cpython-37.pyc differ
+diff --git a/__pycache__/predict.cpython-37.pyc b/__pycache__/predict.cpython-37.pyc
+index eb68419..f920971 100644
+Binary files a/__pycache__/predict.cpython-37.pyc and b/__pycache__/predict.cpython-37.pyc differ
+diff --git a/__pycache__/preprocess.cpython-37.pyc b/__pycache__/preprocess.cpython-37.pyc
+index 26f4773..9fbe289 100644
+Binary files a/__pycache__/preprocess.cpython-37.pyc and b/__pycache__/preprocess.cpython-37.pyc differ
+diff --git a/audio.py b/audio.py
+index e6b6e25..2b1e753 100644
+--- a/audio.py
++++ b/audio.py
+@@ -16,69 +16,65 @@ from numpy import argmax
+ import matplotlib.pyplot as plt
+ from keras.utils import plot_model
+ import graphviz
++from keras.models import load_model
++
++
++print("Processing Data")
++wandb.init()
++config = wandb.config
++
++config.max_len = 11
++config.buckets = 20
++
++# Save data to array file first
++save_data_to_array(max_len=config.max_len, n_mfcc=config.buckets)
++
++labels=["bed", "happy", "cat"]
++X_train, X_test, y_train, y_test = get_train_test()
++# # Feature dimension
++channels = 1
++config.epochs = 50
++config.batch_size = 100
++
++num_classes = 3
++X_train = X_train.reshape(X_train.shape[0], config.buckets, config.max_len, channels)
++X_test = X_test.reshape(X_test.shape[0], config.buckets, config.max_len, channels)
++
++y_train_hot = to_categorical(y_train)
++y_test_hot = to_categorical(y_test)
++
++model = Sequential()
++
++print("Training Model")
++
++input_shape = X_train[0].shape
++model.add(Conv2D(32,
++    (3, 3),
++    input_shape=input_shape,
++    activation='relu'))
++model.add(MaxPooling2D(pool_size=(2, 2)))
++model.add(Dropout(0.5))
++model.add(Flatten())
++model.add(Dense(128, activation='relu'))
++model.add(Dropout(0.5))
++model.add(Dense(num_classes, activation='softmax'))
++
++model.compile(loss='categorical_crossentropy', optimizer='adam',
++                metrics=['accuracy'])
++
++wandb.init()
++model.fit(X_train, y_train_hot, epochs=config.epochs, validation_data=(X_test, y_test_hot), callbacks=[WandbCallback(data_type="image", labels=labels)])
++
++scores = model.evaluate(X_test,y_test_hot, verbose=0)
++print("%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
++
++# serialize model to JSON
++model_json = model.to_json()
++with open("model.json", "w") as json_file:
++    json_file.write(model_json)
++# serialize weights to HDF5
++model.save_weights("model.h5")
++print("Saved model to model.h5")
++
+ 
+ 
+-def funct():
+-    wandb.init()
+-    config = wandb.config
+-
+-    config.max_len = 11
+-    config.buckets = 20
+-
+-    # Save data to array file first
+-    save_data_to_array(max_len=config.max_len, n_mfcc=config.buckets)
+-
+-    labels=["bed", "happy", "cat"]
+-    X_train, X_test, y_train, y_test = get_train_test()
+-    # # Feature dimension
+-    channels = 1
+-    config.epochs = 50
+-    config.batch_size = 100
+-
+-    num_classes = 3
+-    X_train = X_train.reshape(X_train.shape[0], config.buckets, config.max_len, channels)
+-    X_test = X_test.reshape(X_test.shape[0], config.buckets, config.max_len, channels)
+-    plt.imshow(X_train[100, :, :, 0])
+-    y_train_hot = to_categorical(y_train)
+-    y_test_hot = to_categorical(y_test)
+-
+-    X_train = X_train.reshape(X_train.shape[0], config.buckets, config.max_len)
+-    X_test = X_test.reshape(X_test.shape[0], config.buckets, config.max_len)
+-
+-
+-    x_final_vector = []
+-    x_final_vector_vector = []
+-    x_final_vector = wav2mfcc('output.wav')
+-    x_final_vector_vector.append(x_final_vector)
+-    # x_final_vector_vector[0] = x_final_vector
+-    x_final = np.array(x_final_vector_vector)
+-    x_final = x_final.reshape(x_final.shape[0], config.buckets, config.max_len)
+-    # print predict sample shape
+-    print(x_final.shape)
+-    # x_final = x_final.reshape(config.buckets, config.max_len) 
+-
+-    model = Sequential()
+-    input_shape = X_train[0].shape
+-    # print predict sample shape
+-    print(input_shape)
+-
+-    model.add(Flatten(input_shape=input_shape))
+-
+-    model.add(Dense(num_classes, activation='softmax'))
+-    model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=['accuracy'])
+-
+-    wandb.init()
+-    model.fit(X_train, y_train_hot, epochs=config.epochs, validation_data=(X_test, y_test_hot), callbacks=[WandbCallback(data_type="image", labels=labels)])
+-    prediction(x_final , model)
+-    model.save("model.h5")
+-
+-
+-def prediction(x_final, model):
+-    y_final_oneHotEncoded= model.predict_classes(x_final, batch_size=1, verbose=0)
+-    y_final_prob= model.predict_proba(x_final, batch_size=1, verbose=0)
+-    y_final_prob= np.round(y_final_prob,2)
+-    predictNumber = y_final_oneHotEncoded[0]
+-    listNames = ["happy","bed","cat"]
+-    print(f"PREDICTION NUMBER = {predictNumber}")
+-    print(f"PREDICTION = {listNames[predictNumber]}")
+-    print(f"PREDICTION Prob= {y_final_prob}")
+\ No newline at end of file
+diff --git a/main.py b/main.py
+index 7c20b68..087a0ea 100644
+--- a/main.py
++++ b/main.py
+@@ -1,11 +1,53 @@
+-from audio import *
+-from predict import *
+ import sounddevice as sd
+ from scipy.io.wavfile import write
++from preprocess import *
++import keras
++from keras.models import Sequential
++from keras.layers import Dense, Dropout, Flatten, Conv2D, MaxPooling2D, LSTM
++from keras.utils import to_categorical
++import wandb
++from wandb.keras import WandbCallback
++from numpy import argmax
++import matplotlib.pyplot as plt
++from keras.utils import plot_model
++import graphviz
++from numpy import loadtxt
++from keras.models import load_model
++import main as mn
++from keras.models import model_from_json
++
++
++json_file = open('model.json', 'r')
++loaded_model_json = json_file.read()
++json_file.close()
++model = model_from_json(loaded_model_json)
++# load weights into new model
++model.load_weights("model.h5")
++model.compile(loss='categorical_crossentropy', optimizer='adam',
++                metrics=['accuracy'])
++                
++def predictRecording():
++        x_final_vector = []
++        x_final_vector_vector = []
++        x_final_vector = wav2mfcc('output.wav', max_len=11, n_mfcc=20)
++        x_final_vector_vector.append(x_final_vector)
++        # x_final_vector_vector[0] = x_final_vector
++        x_final = np.array(x_final_vector_vector)
++        x_final = x_final.reshape(x_final.shape[0], 20, 11, 1)
++        y_final_oneHotEncoded= model.predict_classes(x_final, batch_size=1, verbose=0)
++        y_final_prob= model.predict_proba(x_final, batch_size=1, verbose=0)
++        predictNumber = y_final_oneHotEncoded[0]
++        listNames = ["happy","bed","cat"]
++        print(f"PREDICTION NUMBER = {predictNumber}")
++        print(f"PREDICTION = {listNames[predictNumber]}")
++        print(f"PREDICTION Prob= {y_final_prob}")
++        start()
++        
++        
+ 
+ 
+ def testRecord():
+-    print("Recording for two seconds")    
++    print("Recording for one second")    
+     fs = 44100  # Sample rate
+     seconds = 2  # Duration of recording
+ 
+@@ -14,10 +56,10 @@ def testRecord():
+     write('output.wav', fs, myrecording)
+     predictRecording()
+ 
+-    
+-print("PRESS RETURN TO RECORD")
+-key = input("PRESS RETURN TO RECORD :")
+-if key == "":
+-        testRecord()
+-
++def start():
++        print("PRESS RETURN TO RECORD")
++        key = input("PRESS RETURN TO RECORD :")
++        if key == "":
++                testRecord()
+ 
++predictRecording()
+\ No newline at end of file
+diff --git a/model.h5 b/model.h5
+index d6a8eb4..765375d 100644
+Binary files a/model.h5 and b/model.h5 differ
+diff --git a/output.wav b/output.wav
+index d6e194d..6a553ce 100644
+Binary files a/output.wav and b/output.wav differ
+diff --git a/predict.py b/predict.py
+deleted file mode 100644
+index b5459ee..0000000
+--- a/predict.py
++++ /dev/null
+@@ -1,44 +0,0 @@
+-from preprocess import *
+-import keras
+-from keras.models import Sequential
+-from keras.layers import Dense, Dropout, Flatten, Conv2D, MaxPooling2D, LSTM
+-from keras.utils import to_categorical
+-import wandb
+-from wandb.keras import WandbCallback
+-from numpy import argmax
+-import matplotlib.pyplot as plt
+-from keras.utils import plot_model
+-import graphviz
+-from numpy import loadtxt
+-from keras.models import load_model
+-
+-# wandb.init()
+-# config = wandb.config
+-
+-# config.epochs = 50
+-# config.batch_size = 100
+-
+-
+-x_final_vector = []
+-x_final_vector_vector = []
+-x_final_vector = wav2mfcc('output.wav')
+-x_final_vector_vector.append(x_final_vector)
+-# x_final_vector_vector[0] = x_final_vector
+-x_final = np.array(x_final_vector_vector)
+-x_final = x_final.reshape(x_final.shape[0], 20, 11)
+-# print predict sample shape
+-print(x_final.shape)
+-# x_final = x_final.reshape(config.buckets, config.max_len) 
+-
+-model=load_model("model.h5")
+-
+-def predictRecording():
+-    y_final_oneHotEncoded= model.predict_classes(x_final, batch_size=1, verbose=0)
+-    y_final_prob= model.predict_proba(x_final, batch_size=1, verbose=0)
+-    y_final_prob= np.round(y_final_prob,2)
+-    predictNumber = y_final_oneHotEncoded[0]
+-    listNames = ["happy","bed","cat"]
+-    print(f"PREDICTION NUMBER = {predictNumber}")
+-    print(f"PREDICTION = {listNames[predictNumber]}")
+-    print(f"PREDICTION Prob= {y_final_prob}")
+-
+diff --git a/preprocess.py b/preprocess.py
+index 65d722b..6c86c18 100644
+--- a/preprocess.py
++++ b/preprocess.py
+@@ -49,7 +49,7 @@ def save_data_to_array(path=DATA_PATH, max_len=11, n_mfcc=20):
+         np.save(label + '.npy', mfcc_vectors)
+ 
+ 
+-def get_train_test(split_ratio=0.6, random_state=42):
++def get_train_test(split_ratio=0.8, random_state=42):
+     # Get available labels
+     labels, indices, _ = get_labels(DATA_PATH)
+ 
+diff --git a/wandb/debug.log b/wandb/debug.log
+index 16cd50d..e24f7e1 100644
+--- a/wandb/debug.log
++++ b/wandb/debug.log
+@@ -1,74 +1,20 @@
+-2019-08-23 16:28:32,871 DEBUG   MainThread:68345 [wandb_config.py:_load_defaults():82] no defaults not found in config-defaults.yaml
+-2019-08-23 16:28:32,873 DEBUG   MainThread:68345 [cmd.py:execute():722] Popen(['git', 'rev-parse', '--show-toplevel'], cwd=/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition, universal_newlines=False, shell=None, istream=None)
+-2019-08-23 16:28:32,884 DEBUG   MainThread:68345 [cmd.py:execute():722] Popen(['git', 'rev-parse', '--show-toplevel'], cwd=/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition, universal_newlines=False, shell=None, istream=None)
+-2019-08-23 16:28:32,900 DEBUG   MainThread:68345 [cmd.py:execute():722] Popen(['git', 'cat-file', '--batch-check'], cwd=/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition, universal_newlines=False, shell=None, istream=<valid stream>)
+-2019-08-23 16:28:32,915 DEBUG   MainThread:68345 [cmd.py:execute():722] Popen(['git', 'rev-parse', '--show-toplevel'], cwd=/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition, universal_newlines=False, shell=None, istream=None)
+-2019-08-23 16:28:32,942 DEBUG   MainThread:68345 [run_manager.py:__init__():483] Initialized sync for speechRecognition/noo1l7zg
+-2019-08-23 16:28:32,948 INFO    MainThread:68345 [run_manager.py:wrap_existing_process():1044] wrapping existing process 68335
+-2019-08-23 16:28:32,948 WARNING MainThread:68345 [io_wrap.py:register():103] SIGWINCH handler was not None: <Handlers.SIG_DFL: 0>
+-2019-08-23 16:28:32,983 DEBUG   MainThread:68345 [connectionpool.py:_new_conn():813] Starting new HTTPS connection (1): pypi.org:443
+-2019-08-23 16:28:33,062 DEBUG   MainThread:68345 [connectionpool.py:_make_request():393] https://pypi.org:443 "GET /pypi/wandb/json HTTP/1.1" 200 33942
+-2019-08-23 16:28:33,086 INFO    MainThread:68345 [run_manager.py:init_run():860] system metrics and metadata threads started
+-2019-08-23 16:28:33,086 INFO    MainThread:68345 [run_manager.py:init_run():894] upserting run before process can begin, waiting at most 10 seconds
+-2019-08-23 16:28:33,087 DEBUG   Thread-13 :68345 [cmd.py:execute():722] Popen(['git', 'rev-parse', '--show-toplevel'], cwd=/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition, universal_newlines=False, shell=None, istream=None)
+-2019-08-23 16:28:33,120 DEBUG   Thread-13 :68345 [connectionpool.py:_new_conn():813] Starting new HTTPS connection (1): api.wandb.ai:443
+-2019-08-23 16:28:33,325 DEBUG   Thread-13 :68345 [connectionpool.py:_make_request():393] https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 515
+-2019-08-23 16:28:33,330 INFO    Thread-13 :68345 [run_manager.py:_upsert_run():956] saving patches
+-2019-08-23 16:28:33,331 DEBUG   Thread-13 :68345 [cmd.py:execute():722] Popen(['git', 'rev-parse', '--show-toplevel'], cwd=/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition, universal_newlines=False, shell=None, istream=None)
+-2019-08-23 16:28:33,356 DEBUG   Thread-13 :68345 [cmd.py:execute():722] Popen(['git', 'diff', '--cached', '--abbrev=40', '--full-index', '--raw'], cwd=/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition, universal_newlines=False, shell=None, istream=None)
+-2019-08-23 16:28:33,377 DEBUG   Thread-13 :68345 [cmd.py:execute():722] Popen(['git', 'diff', '--abbrev=40', '--full-index', '--raw'], cwd=/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition, universal_newlines=False, shell=None, istream=None)
+-2019-08-23 16:28:33,491 DEBUG   Thread-13 :68345 [cmd.py:execute():722] Popen(['git', 'version'], cwd=/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition, universal_newlines=False, shell=None, istream=None)
+-2019-08-23 16:28:33,552 DEBUG   Thread-13 :68345 [cmd.py:execute():722] Popen(['git', 'merge-base', 'HEAD', 'c3ef020de64c129fb3fc24d4cd199444522176b4'], cwd=/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition, universal_newlines=False, shell=None, istream=None)
+-2019-08-23 16:28:33,568 INFO    Thread-13 :68345 [run_manager.py:_upsert_run():958] saving pip packages
+-2019-08-23 16:28:33,569 INFO    Thread-13 :68345 [run_manager.py:_upsert_run():960] initializing streaming files api
+-2019-08-23 16:28:33,570 INFO    Thread-13 :68345 [run_manager.py:_upsert_run():967] unblocking file change observer, beginning sync with W&B servers
+-2019-08-23 16:28:33,570 INFO    MainThread:68345 [run_manager.py:wrap_existing_process():1061] informing user process we are ready to proceed
+-2019-08-23 16:28:33,571 INFO    MainThread:68345 [run_manager.py:_sync_etc():1144] entering loop for messages from user process
+-2019-08-23 16:28:33,904 INFO    Thread-2  :68345 [run_manager.py:_on_file_created():619] file/dir created: /Users/hamzaehsan/Desktop/titleTownTech/speechRecognition/wandb/run-20190823_212831-noo1l7zg/wandb-metadata.json
+-2019-08-23 16:28:33,905 INFO    Thread-2  :68345 [run_manager.py:_on_file_created():619] file/dir created: /Users/hamzaehsan/Desktop/titleTownTech/speechRecognition/wandb/run-20190823_212831-noo1l7zg/output.log
+-2019-08-23 16:28:33,905 INFO    Thread-2  :68345 [run_manager.py:_on_file_created():619] file/dir created: /Users/hamzaehsan/Desktop/titleTownTech/speechRecognition/wandb/run-20190823_212831-noo1l7zg/config.yaml
+-2019-08-23 16:28:33,916 DEBUG   Thread-2  :68345 [connectionpool.py:_new_conn():813] Starting new HTTPS connection (1): api.wandb.ai:443
+-2019-08-23 16:28:33,917 DEBUG   Thread-14 :68345 [connectionpool.py:_new_conn():813] Starting new HTTPS connection (1): api.wandb.ai:443
+-2019-08-23 16:28:33,931 INFO    MainThread:68345 [run_manager.py:_sync_etc():1167] received message from user process: {"exitcode": 1}
+-2019-08-23 16:28:33,931 INFO    MainThread:68345 [run_manager.py:_sync_etc():1253] closing log streams and sending exitcode to W&B
+-2019-08-23 16:28:33,932 INFO    MainThread:68345 [run_manager.py:shutdown():974] shutting down system stats and metadata service
+-2019-08-23 16:28:34,087 INFO    MainThread:68345 [run_manager.py:shutdown():983] stopping streaming files and file change observer
+-2019-08-23 16:28:34,092 DEBUG   Thread-14 :68345 [connectionpool.py:_make_request():393] https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 792
+-2019-08-23 16:28:34,111 DEBUG   Thread-2  :68345 [connectionpool.py:_make_request():393] https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 632
+-2019-08-23 16:28:34,115 INFO    MainThread:68345 [run_manager.py:_on_file_created():619] file/dir created: /Users/hamzaehsan/Desktop/titleTownTech/speechRecognition/wandb/run-20190823_212831-noo1l7zg/requirements.txt
+-2019-08-23 16:28:34,116 INFO    MainThread:68345 [run_manager.py:_on_file_created():619] file/dir created: /Users/hamzaehsan/Desktop/titleTownTech/speechRecognition/wandb/run-20190823_212831-noo1l7zg/diff.patch
+-2019-08-23 16:28:34,116 INFO    MainThread:68345 [run_manager.py:_on_file_modified():630] file/dir modified: /Users/hamzaehsan/Desktop/titleTownTech/speechRecognition/wandb/run-20190823_212831-noo1l7zg/wandb-metadata.json
+-2019-08-23 16:28:34,117 INFO    MainThread:68345 [run_manager.py:_on_file_created():619] file/dir created: /Users/hamzaehsan/Desktop/titleTownTech/speechRecognition/wandb/run-20190823_212831-noo1l7zg/wandb-events.jsonl
+-2019-08-23 16:28:34,125 DEBUG   Thread-15 :68345 [connectionpool.py:_new_conn():813] Starting new HTTPS connection (1): api.wandb.ai:443
+-2019-08-23 16:28:34,135 DEBUG   Thread-16 :68345 [connectionpool.py:_new_conn():813] Starting new HTTPS connection (1): api.wandb.ai:443
+-2019-08-23 16:28:34,137 DEBUG   Thread-14 :68345 [connectionpool.py:_new_conn():813] Starting new HTTPS connection (1): storage.googleapis.com:443
+-2019-08-23 16:28:34,138 DEBUG   Thread-20 :68345 [connectionpool.py:_new_conn():813] Starting new HTTPS connection (1): api.wandb.ai:443
+-2019-08-23 16:28:34,138 DEBUG   MainThread:68345 [connectionpool.py:_new_conn():813] Starting new HTTPS connection (1): api.wandb.ai:443
+-2019-08-23 16:28:34,145 DEBUG   Thread-17 :68345 [connectionpool.py:_new_conn():813] Starting new HTTPS connection (1): api.wandb.ai:443
+-2019-08-23 16:28:34,306 DEBUG   Thread-15 :68345 [connectionpool.py:_make_request():393] https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 774
+-2019-08-23 16:28:34,312 DEBUG   Thread-15 :68345 [connectionpool.py:_new_conn():813] Starting new HTTPS connection (1): storage.googleapis.com:443
+-2019-08-23 16:28:34,314 DEBUG   Thread-20 :68345 [connectionpool.py:_make_request():393] https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 788
+-2019-08-23 16:28:34,317 DEBUG   Thread-16 :68345 [connectionpool.py:_make_request():393] https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 782
+-2019-08-23 16:28:34,321 DEBUG   Thread-20 :68345 [connectionpool.py:_new_conn():813] Starting new HTTPS connection (1): storage.googleapis.com:443
+-2019-08-23 16:28:34,325 DEBUG   Thread-16 :68345 [connectionpool.py:_new_conn():813] Starting new HTTPS connection (1): storage.googleapis.com:443
+-2019-08-23 16:28:34,328 DEBUG   MainThread:68345 [connectionpool.py:_make_request():393] https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 632
+-2019-08-23 16:28:34,337 DEBUG   Thread-17 :68345 [connectionpool.py:_make_request():393] https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 788
+-2019-08-23 16:28:34,343 DEBUG   Thread-17 :68345 [connectionpool.py:_new_conn():813] Starting new HTTPS connection (1): storage.googleapis.com:443
+-2019-08-23 16:28:34,452 DEBUG   Thread-14 :68345 [connectionpool.py:_make_request():393] https://storage.googleapis.com:443 "PUT /wandb-production.appspot.com/hamzaehsan75/speechRecognition/noo1l7zg/wandb-metadata.json?Expires=1566595774&GoogleAccessId=gorilla-cloud-storage%40wandb-production.iam.gserviceaccount.com&Signature=G3LCMW84VaKqfKfFG4sedmYBScdECTuhIvP65mBDagbYsGnobJwsfMczwzIu1%2BmrV236rjiM2f9w%2B6pJ%2Fz07ZLrUDN76PlN4rw2swgCBGHzB2EVB9YUFjBFNtaTWp193tNTc3IX4fW9yMGr18iFn9DqZA38yoyOBNVrGboXYoXynABp3d6trMrLWB4mTCRGMZJY1mzG4BwcDmw69lJMFnqiGT7AF%2Fb4gNKMYCQYIPz6oVlMspnAxzIu6a69vZ1ME9rh5jsJX4wSImqbdy%2Bq%2FWDmfe3qMZn1yh0HJGTADElRWfwkBUu19jpDD5%2B%2BPsErfTizsZ5HFCNj4TqcUPjaD4Q%3D%3D HTTP/1.1" 200 0
+-2019-08-23 16:28:34,461 DEBUG   Thread-21 :68345 [connectionpool.py:_new_conn():813] Starting new HTTPS connection (1): api.wandb.ai:443
+-2019-08-23 16:28:34,640 DEBUG   Thread-21 :68345 [connectionpool.py:_make_request():393] https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 792
+-2019-08-23 16:28:34,641 DEBUG   Thread-20 :68345 [connectionpool.py:_make_request():393] https://storage.googleapis.com:443 "PUT /wandb-production.appspot.com/hamzaehsan75/speechRecognition/noo1l7zg/output.log?Expires=1566595774&GoogleAccessId=gorilla-cloud-storage%40wandb-production.iam.gserviceaccount.com&Signature=AKeVanizat%2FZ9vqpywW7Q78apopbBVGBFDGCfFZPUuyTp9Fw8MuYz%2FYOI%2FCqOQkrvQJgEilNN5eBfgp3lVUVaenwe1e0R%2BhH%2BNDbdtos09bslpnd%2BdAdAA1kLTMXNVC%2FHtXSC%2F5696Z7SizmHOKFSKly5iqH6b0%2FzsQ8OFl7KW7XIVMYuMd8Puy3xkX5rRygpa4vCQLbx1ZrhpayqbIYKgQzAzuDlknm5hCHDqt%2F6v77RkGMDv5QlUIPYapFeCY2Ru1i288n3Mr1gg9%2BrfDp0w4S%2FvknqQYfB0VpevCZV%2B902cMpFfz9vWQo%2F1kbUuJbSr%2BB394a3MFfRGzeeRnxjg%3D%3D HTTP/1.1" 200 0
+-2019-08-23 16:28:34,650 DEBUG   Thread-21 :68345 [connectionpool.py:_new_conn():813] Starting new HTTPS connection (1): storage.googleapis.com:443
+-2019-08-23 16:28:34,655 DEBUG   Thread-16 :68345 [connectionpool.py:_make_request():393] https://storage.googleapis.com:443 "PUT /wandb-production.appspot.com/hamzaehsan75/speechRecognition/noo1l7zg/requirements.txt?Expires=1566595774&GoogleAccessId=gorilla-cloud-storage%40wandb-production.iam.gserviceaccount.com&Signature=RBCHVtg5P9%2FwDhP6b3JXkSm9wE8IuvFhPAjDNDi2TPU33Lp5N87W6%2FAPgBkcsuD41HkjfyBnEn6wAJZSf8hiVtosg7KAIoZsGEY0PqDofSWajIf8ATWyNpsydN65BOWjVO3FBrbqNlvE%2Fx01EFsiMDMZQzdWyp0pKDFhksdbZkHBUUp8F2XE6GbyL7njpyBJxbkT44Ho2360nt6gsD8XTS7OpFaIttv85K8DjnvsjJjirfvOi%2FcitINx3QxDO9ePDSN9iWbk6xdysmXJkMbKyUJAeCc9dMdwNI8bvd%2BGJZrpQbiVJdZOU8hJqk20JDZQNXEf%2BpVOtvitNdZv9Zmo1w%3D%3D HTTP/1.1" 200 0
+-2019-08-23 16:28:34,682 DEBUG   Thread-15 :68345 [connectionpool.py:_make_request():393] https://storage.googleapis.com:443 "PUT /wandb-production.appspot.com/hamzaehsan75/speechRecognition/noo1l7zg/config.yaml?Expires=1566595774&GoogleAccessId=gorilla-cloud-storage%40wandb-production.iam.gserviceaccount.com&Signature=FoPxpJcHq5QWjk5Wx%2BUsp%2B%2BERuZMCh01QUEzU22OV44PGYUiFKNvOJ2OvpWK%2FxQ8ZRK9KBcTs%2FeERcxenp1JsSL%2B8bvitZhvr3BY1WJ4jKOpOIKG5tKhPEd13mmS8Tr1dmVKY9bC6rV0knEkcSpTFQKGpIsvBvfF54FXGyGGDDFb63CkGIx0kzWw0GwbwTgyqy4HmN2yIXRIAJCVzumfiPOW0gNwd0yWEl20iRvVtkVgCCkCGJbBqbIB7cc2XoB9%2FJAaqBPIWecovso8IvIdZZuVQCHekQXBK18R0AaVGo5z4T9aL5sRs5BraEXKFudI4WxQcMzqL7rs3BsdGM57kw%3D%3D HTTP/1.1" 200 0
+-2019-08-23 16:28:34,691 DEBUG   Thread-22 :68345 [connectionpool.py:_new_conn():813] Starting new HTTPS connection (1): api.wandb.ai:443
+-2019-08-23 16:28:34,835 DEBUG   Thread-17 :68345 [connectionpool.py:_make_request():393] https://storage.googleapis.com:443 "PUT /wandb-production.appspot.com/hamzaehsan75/speechRecognition/noo1l7zg/diff.patch?Expires=1566595774&GoogleAccessId=gorilla-cloud-storage%40wandb-production.iam.gserviceaccount.com&Signature=Mryh8%2BnpOUaJf%2FhdDsGtJbKT3i%2FYYxJL0daAwk17ZGTxGyE%2BfbS%2B1WwZYSjX45b21UREiOH%2BWsm6lMe9cm76%2BU8QfUAdxhXMmVK0zs8Ea2h3BRdfOA7mH1or6CNL4IEz9fLsCFpC67E2hg7U5WBjI18Zdhim2Fzcih1jKG7LUXP0qB9PFjNC8eMEvnH6IXlvjdbt%2FQnipAtI%2FjA1v%2FYL24TVLnqXUmcvaCPRk3%2BNLE9qwt4jCEHZRJbawkoL%2Fagu2swPkk%2BiVt7CFJt3n%2FOBH5uKbUOkGtVQl2W1s4QMOXGab6M9jQjPCATe301bM7TULQVHO4rK7S8fBuh%2FX4r1Uw%3D%3D HTTP/1.1" 200 0
+-2019-08-23 16:28:34,873 DEBUG   Thread-22 :68345 [connectionpool.py:_make_request():393] https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 791
+-2019-08-23 16:28:34,880 DEBUG   Thread-22 :68345 [connectionpool.py:_new_conn():813] Starting new HTTPS connection (1): storage.googleapis.com:443
+-2019-08-23 16:28:35,003 DEBUG   Thread-21 :68345 [connectionpool.py:_make_request():393] https://storage.googleapis.com:443 "PUT /wandb-production.appspot.com/hamzaehsan75/speechRecognition/noo1l7zg/wandb-metadata.json?Expires=1566595774&GoogleAccessId=gorilla-cloud-storage%40wandb-production.iam.gserviceaccount.com&Signature=G3LCMW84VaKqfKfFG4sedmYBScdECTuhIvP65mBDagbYsGnobJwsfMczwzIu1%2BmrV236rjiM2f9w%2B6pJ%2Fz07ZLrUDN76PlN4rw2swgCBGHzB2EVB9YUFjBFNtaTWp193tNTc3IX4fW9yMGr18iFn9DqZA38yoyOBNVrGboXYoXynABp3d6trMrLWB4mTCRGMZJY1mzG4BwcDmw69lJMFnqiGT7AF%2Fb4gNKMYCQYIPz6oVlMspnAxzIu6a69vZ1ME9rh5jsJX4wSImqbdy%2Bq%2FWDmfe3qMZn1yh0HJGTADElRWfwkBUu19jpDD5%2B%2BPsErfTizsZ5HFCNj4TqcUPjaD4Q%3D%3D HTTP/1.1" 200 0
+-2019-08-23 16:28:35,314 DEBUG   Thread-22 :68345 [connectionpool.py:_make_request():393] https://storage.googleapis.com:443 "PUT /wandb-production.appspot.com/hamzaehsan75/speechRecognition/noo1l7zg/config.yaml?Expires=1566595774&GoogleAccessId=gorilla-cloud-storage%40wandb-production.iam.gserviceaccount.com&Signature=FoPxpJcHq5QWjk5Wx%2BUsp%2B%2BERuZMCh01QUEzU22OV44PGYUiFKNvOJ2OvpWK%2FxQ8ZRK9KBcTs%2FeERcxenp1JsSL%2B8bvitZhvr3BY1WJ4jKOpOIKG5tKhPEd13mmS8Tr1dmVKY9bC6rV0knEkcSpTFQKGpIsvBvfF54FXGyGGDDFb63CkGIx0kzWw0GwbwTgyqy4HmN2yIXRIAJCVzumfiPOW0gNwd0yWEl20iRvVtkVgCCkCGJbBqbIB7cc2XoB9%2FJAaqBPIWecovso8IvIdZZuVQCHekQXBK18R0AaVGo5z4T9aL5sRs5BraEXKFudI4WxQcMzqL7rs3BsdGM57kw%3D%3D HTTP/1.1" 200 0
+-2019-08-23 16:28:36,129 DEBUG   Thread-6  :68345 [connectionpool.py:_new_conn():813] Starting new HTTPS connection (1): api.wandb.ai:443
+-2019-08-23 16:28:36,336 DEBUG   Thread-6  :68345 [connectionpool.py:_make_request():393] https://api.wandb.ai:443 "POST /hamzaehsan75/speechRecognition/noo1l7zg/file_stream HTTP/1.1" 200 312
+-2019-08-23 16:28:36,458 DEBUG   Thread-6  :68345 [connectionpool.py:_make_request():393] https://api.wandb.ai:443 "POST /hamzaehsan75/speechRecognition/noo1l7zg/file_stream HTTP/1.1" 200 309
+-2019-08-23 16:28:36,459 INFO    MainThread:68345 [run_manager.py:_sync_etc():1265] process only ran for 4 seconds, not syncing files
+-2019-08-23 16:28:36,459 INFO    MainThread:68345 [noo1l7zg:run_manager.py:_sync_etc():1265] process only ran for 4 seconds, not syncing files
++2019-08-27 10:01:49,732 DEBUG   MainThread:12098 [wandb_config.py:_load_defaults():82] no defaults not found in config-defaults.yaml
++2019-08-27 10:01:49,734 DEBUG   MainThread:12098 [cmd.py:execute():722] Popen(['git', 'rev-parse', '--show-toplevel'], cwd=/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition, universal_newlines=False, shell=None, istream=None)
++2019-08-27 10:01:49,746 DEBUG   MainThread:12098 [cmd.py:execute():722] Popen(['git', 'rev-parse', '--show-toplevel'], cwd=/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition, universal_newlines=False, shell=None, istream=None)
++2019-08-27 10:01:49,762 DEBUG   MainThread:12098 [cmd.py:execute():722] Popen(['git', 'cat-file', '--batch-check'], cwd=/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition, universal_newlines=False, shell=None, istream=<valid stream>)
++2019-08-27 10:01:49,774 DEBUG   MainThread:12098 [cmd.py:execute():722] Popen(['git', 'rev-parse', '--show-toplevel'], cwd=/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition, universal_newlines=False, shell=None, istream=None)
++2019-08-27 10:01:49,800 DEBUG   MainThread:12098 [run_manager.py:__init__():483] Initialized sync for speechRecognition/nl0w6ibm
++2019-08-27 10:01:49,805 INFO    MainThread:12098 [run_manager.py:wrap_existing_process():1044] wrapping existing process 12089
++2019-08-27 10:01:49,806 WARNING MainThread:12098 [io_wrap.py:register():103] SIGWINCH handler was not None: <Handlers.SIG_DFL: 0>
++2019-08-27 10:01:49,863 DEBUG   MainThread:12098 [connectionpool.py:_new_conn():813] Starting new HTTPS connection (1): pypi.org:443
++2019-08-27 10:01:49,944 DEBUG   MainThread:12098 [connectionpool.py:_make_request():393] https://pypi.org:443 "GET /pypi/wandb/json HTTP/1.1" 200 33942
++2019-08-27 10:01:49,967 INFO    MainThread:12098 [run_manager.py:init_run():860] system metrics and metadata threads started
++2019-08-27 10:01:49,967 INFO    MainThread:12098 [run_manager.py:init_run():894] upserting run before process can begin, waiting at most 10 seconds
++2019-08-27 10:01:49,968 DEBUG   Thread-13 :12098 [cmd.py:execute():722] Popen(['git', 'rev-parse', '--show-toplevel'], cwd=/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition, universal_newlines=False, shell=None, istream=None)
++2019-08-27 10:01:49,994 DEBUG   Thread-13 :12098 [connectionpool.py:_new_conn():813] Starting new HTTPS connection (1): api.wandb.ai:443
++2019-08-27 10:01:50,204 DEBUG   Thread-13 :12098 [connectionpool.py:_make_request():393] https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 513
++2019-08-27 10:01:50,209 INFO    Thread-13 :12098 [run_manager.py:_upsert_run():956] saving patches
++2019-08-27 10:01:50,209 DEBUG   Thread-13 :12098 [cmd.py:execute():722] Popen(['git', 'rev-parse', '--show-toplevel'], cwd=/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition, universal_newlines=False, shell=None, istream=None)
++2019-08-27 10:01:50,225 DEBUG   Thread-13 :12098 [cmd.py:execute():722] Popen(['git', 'diff', '--cached', '--abbrev=40', '--full-index', '--raw'], cwd=/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition, universal_newlines=False, shell=None, istream=None)
++2019-08-27 10:01:50,243 DEBUG   Thread-13 :12098 [cmd.py:execute():722] Popen(['git', 'diff', '--abbrev=40', '--full-index', '--raw'], cwd=/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition, universal_newlines=False, shell=None, istream=None)
++2019-08-27 10:01:50,363 DEBUG   Thread-13 :12098 [cmd.py:execute():722] Popen(['git', 'version'], cwd=/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition, universal_newlines=False, shell=None, istream=None)

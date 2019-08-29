@@ -1,0 +1,27 @@
+Saving vectors of label - 'Prediction': 0it [00:00, ?it/s]
+Traceback (most recent call last):
+  File "/Users/hamzaehsan/.vscode/extensions/ms-python.python-2019.8.30787/pythonFiles/ptvsd_launcher.py", line 43, in <module>
+    main(ptvsdArgs)
+  File "/Users/hamzaehsan/.vscode/extensions/ms-python.python-2019.8.30787/pythonFiles/lib/python/ptvsd/__main__.py", line 432, in main
+    run()
+  File "/Users/hamzaehsan/.vscode/extensions/ms-python.python-2019.8.30787/pythonFiles/lib/python/ptvsd/__main__.py", line 316, in run_file
+    runpy.run_path(target, run_name='__main__')
+  File "/Users/hamzaehsan/anaconda3/lib/python3.7/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/Users/hamzaehsan/anaconda3/lib/python3.7/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/Users/hamzaehsan/anaconda3/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition/main.py", line 15, in <module>
+    import main as mn
+  File "/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition/main.py", line 69, in <module>
+    start()
+  File "/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition/main.py", line 67, in start
+    testRecord()
+  File "/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition/main.py", line 61, in testRecord
+    predictRecording()
+  File "/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition/main.py", line 41, in predictRecording
+    y_final_oneHotEncoded= model.predict_classes(x, batch_size=1, verbose=0)
+  File "/Users/hamzaehsan/anaconda3/lib/python3.7/site-packages/keras/engine/sequential.py", line 268, in predict_classes
+    if proba.shape[-1] > 1:
+AttributeError: 'list' object has no attribute 'shape'

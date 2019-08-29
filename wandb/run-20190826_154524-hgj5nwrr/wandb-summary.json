@@ -1,0 +1,129 @@
+{
+    "graph": {
+        "_type": "graph",
+        "format": "keras",
+        "nodes": [
+            {
+                "name": "flatten_1_input",
+                "id": "flatten_1_input",
+                "class_name": "InputLayer",
+                "output_shape": [
+                    null,
+                    20,
+                    11
+                ],
+                "num_parameters": 0
+            },
+            {
+                "name": "flatten_1",
+                "id": "flatten_1",
+                "class_name": "Flatten",
+                "output_shape": [
+                    null,
+                    220
+                ],
+                "num_parameters": 0
+            },
+            {
+                "name": "dense_1",
+                "id": "dense_1",
+                "class_name": "Dense",
+                "output_shape": [
+                    null,
+                    3
+                ],
+                "num_parameters": 663
+            },
+            {
+                "name": "dense_2",
+                "id": "dense_2",
+                "class_name": "Dense",
+                "output_shape": [
+                    null,
+                    3
+                ],
+                "num_parameters": 12
+            },
+            {
+                "name": "dense_3",
+                "id": "dense_3",
+                "class_name": "Dense",
+                "output_shape": [
+                    null,
+                    3
+                ],
+                "num_parameters": 12
+            }
+        ],
+        "edges": [
+            [
+                "flatten_1_input",
+                "flatten_1"
+            ],
+            [
+                "flatten_1",
+                "dense_1"
+            ],
+            [
+                "dense_1",
+                "dense_2"
+            ],
+            [
+                "dense_2",
+                "dense_3"
+            ]
+        ]
+    },
+    "val_acc": 0.35163776476029485,
+    "_timestamp": 1566834377.474658,
+    "acc": 0.3309768637532134,
+    "_runtime": 53.73943090438843,
+    "loss": 1.0974786391907916,
+    "_step": 44,
+    "val_loss": 1.0979482532695999,
+    "epoch": 44,
+    "examples": {
+        "width": 11,
+        "height": 20,
+        "count": 36,
+        "_type": "images",
+        "captions": [
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "cat",
+            "bed",
+            "bed",
+            "cat",
+            "bed",
+            "bed",
+            "bed",
+            "cat",
+            "bed",
+            "cat",
+            "bed",
+            "bed",
+            "bed",
+            "bed",
+            "cat"
+        ]
+    }
+}
