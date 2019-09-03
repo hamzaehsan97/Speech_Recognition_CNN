@@ -41,27 +41,5 @@ def predictRecording():
         print(f"PREDICTION NUMBER = {predictNumber}")
         print(f"PREDICTION = {listNames[predictNumber]}")
         print(f"PREDICTION Prob= {y_final_prob}")
-        start()
         
         
-
-
-def testRecord():
-    print("Recording for one second")    
-    fs = 44100  # Sample rate
-    seconds = 2  # Duration of recording
-
-    myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=2)
-    sd.wait()  # Wait until recording is finished
-    write("output.wav", fs, myrecording)
-    # os.rename changes file location to the right folder however, it tends to corrupt the .WAV file
-    #os.rename('/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition/output.wav', '/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition/Predict/Prediction/output.wav')
-    predictRecording()
-
-def start():
-        print("PRESS RETURN TO RECORD")
-        key = input("PRESS RETURN TO RECORD :")
-        if key == "":
-                testRecord()
-
-start()
