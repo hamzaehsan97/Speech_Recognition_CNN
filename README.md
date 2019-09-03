@@ -1,4 +1,4 @@
-# speechRecognition
+# Speech Recognition using Convolutional Neural Networks
 
 This project uses the keras library to build a convolutional neural network based speech recognition model.
 
