@@ -14,7 +14,7 @@ These instructions will get you a copy of the project up and running on your loc
 A step by step series of examples that tell you how to get a development env running
 ```
 1) Clone the project onto your local device.
-2) In terminal/cmd line, go to project directory and run 'wandb setup'
+2) In terminal/cmd line, go to project directory and run 'wandb login'
 ```
 3 a) To use the pretrained model use the following steps
 ```
