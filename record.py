@@ -31,7 +31,7 @@ num = 0
 def testRecord():
     print("Recording for one second")    
     fs = 16000  # Sample rate
-    seconds = 1  # Duration of recording
+    seconds = 2  # Duration of recording
     #Change Range in the line below to record multiple recordings
     for num in range(0,1):
         print("PRESS RETURN TO RECORD")
