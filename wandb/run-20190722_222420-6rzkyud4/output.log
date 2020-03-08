@@ -1,5 +1,0 @@
-Using TensorFlow backend.
-Traceback (most recent call last):
-  File "audio.py", line 15, in <module>
-    import matplotlib.pyplot as plt
-ModuleNotFoundError: No module named 'matplotlib'

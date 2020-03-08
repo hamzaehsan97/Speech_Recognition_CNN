@@ -1,29 +1,0 @@
-Saving vectors of label - 'Prediction':   0%|                                                                                                                                                                         | 0/1 [00:00<?, ?it/s]Saving vectors of label - 'Prediction': 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 31.82it/s]
-PREDICTION NUMBER = 0
-PREDICTION = cat
-PREDICTION Prob= [[0.51298976 0.30966172 0.17734854]]
-PRESS RETURN TO RECORD
-Recording for one second
-Saving vectors of label - 'Prediction':   0%|                                                                                                                                                                         | 0/1 [00:00<?, ?it/s]Saving vectors of label - 'Prediction': 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 74.30it/s]
-PREDICTION NUMBER = 1
-PREDICTION = bed
-PREDICTION Prob= [[0.40256542 0.45467746 0.1427572 ]]
-PRESS RETURN TO RECORD
-Recording for one second
-Saving vectors of label - 'Prediction':   0%|                                                                                                                                                                         | 0/1 [00:00<?, ?it/s]Saving vectors of label - 'Prediction': 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 70.68it/s]
-PREDICTION NUMBER = 0
-PREDICTION = cat
-PREDICTION Prob= [[0.5532136  0.18876682 0.25801957]]
-PRESS RETURN TO RECORD
-Recording for one second
-Saving vectors of label - 'Prediction':   0%|                                                                                                                                                                         | 0/1 [00:00<?, ?it/s]Saving vectors of label - 'Prediction': 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 64.35it/s]
-PREDICTION NUMBER = 1
-PREDICTION = bed
-PREDICTION Prob= [[0.35869423 0.5109167  0.13038906]]
-PRESS RETURN TO RECORD
-Recording for one second
-Saving vectors of label - 'Prediction':   0%|                                                                                                                                                                         | 0/1 [00:00<?, ?it/s]Saving vectors of label - 'Prediction': 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 87.06it/s]
-PREDICTION NUMBER = 1
-PREDICTION = bed
-PREDICTION Prob= [[3.4975132e-04 9.9074101e-01 8.9092609e-03]]
-PRESS RETURN TO RECORD

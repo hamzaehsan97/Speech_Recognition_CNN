@@ -1,40 +1,0 @@
-Saving vectors of label - 'cat':   0%|                                             | 0/1734 [00:00<?, ?it/s]Saving vectors of label - 'cat':   1%|▏                                    | 9/1734 [00:00<00:19, 86.26it/s]Saving vectors of label - 'cat':   1%|▌                                   | 25/1734 [00:00<00:17, 99.38it/s]Saving vectors of label - 'cat':   2%|▋                                  | 37/1734 [00:00<00:16, 104.24it/s]Saving vectors of label - 'cat':   3%|█                                  | 53/1734 [00:00<00:14, 115.95it/s]Saving vectors of label - 'cat':   4%|█▎                                 | 64/1734 [00:00<00:14, 112.71it/s]Saving vectors of label - 'cat':   5%|█▋                                 | 81/1734 [00:00<00:13, 123.83it/s]Saving vectors of label - 'cat':   6%|█▉                                 | 97/1734 [00:00<00:12, 131.58it/s]Saving vectors of label - 'cat':   7%|██▏                               | 114/1734 [00:00<00:11, 140.63it/s]Saving vectors of label - 'cat':   8%|██▌                               | 132/1734 [00:00<00:10, 149.00it/s]Saving vectors of label - 'cat':   9%|██▉                               | 149/1734 [00:01<00:10, 153.19it/s]Saving vectors of label - 'cat':  10%|███▎                              | 167/1734 [00:01<00:09, 158.83it/s]Saving vectors of label - 'cat':  11%|███▌                              | 184/1734 [00:01<00:09, 161.29it/s]Saving vectors of label - 'cat':  12%|███▉                              | 202/1734 [00:01<00:09, 164.33it/s]Saving vectors of label - 'cat':  13%|████▎                             | 220/1734 [00:01<00:09, 167.01it/s]Saving vectors of label - 'cat':  14%|████▋                             | 237/1734 [00:01<00:09, 166.24it/s]
-Traceback (most recent call last):
-  File "/Users/hamzaehsan/anaconda3/lib/python3.7/site-packages/librosa/core/audio.py", line 127, in load
-    with sf.SoundFile(path) as sf_desc:
-  File "/Users/hamzaehsan/anaconda3/lib/python3.7/site-packages/soundfile.py", line 627, in __init__
-    self._file = self._open(file, mode_int, closefd)
-  File "/Users/hamzaehsan/anaconda3/lib/python3.7/site-packages/soundfile.py", line 1182, in _open
-    "Error opening {0!r}: ".format(self.name))
-  File "/Users/hamzaehsan/anaconda3/lib/python3.7/site-packages/soundfile.py", line 1355, in _error_check
-    raise RuntimeError(prefix + _ffi.string(err_str).decode('utf-8', 'replace'))
-RuntimeError: Error opening './data/cat/.DS_Store': File contains data in an unknown format.
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/hamzaehsan/.vscode/extensions/ms-python.python-2019.8.30787/pythonFiles/ptvsd_launcher.py", line 43, in <module>
-    main(ptvsdArgs)
-  File "/Users/hamzaehsan/.vscode/extensions/ms-python.python-2019.8.30787/pythonFiles/lib/python/ptvsd/__main__.py", line 432, in main
-    run()
-  File "/Users/hamzaehsan/.vscode/extensions/ms-python.python-2019.8.30787/pythonFiles/lib/python/ptvsd/__main__.py", line 316, in run_file
-    runpy.run_path(target, run_name='__main__')
-  File "/Users/hamzaehsan/anaconda3/lib/python3.7/runpy.py", line 263, in run_path
-    pkg_name=pkg_name, script_name=fname)
-  File "/Users/hamzaehsan/anaconda3/lib/python3.7/runpy.py", line 96, in _run_module_code
-    mod_name, mod_spec, pkg_name, script_name)
-  File "/Users/hamzaehsan/anaconda3/lib/python3.7/runpy.py", line 85, in _run_code
-    exec(code, run_globals)
-  File "/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition/audio.py", line 29, in <module>
-    save_data_to_array(max_len=config.max_len, n_mfcc=config.buckets)
-  File "/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition/preprocess.py", line 47, in save_data_to_array
-    mfcc = wav2mfcc(wavfile, max_len=max_len, n_mfcc=n_mfcc)
-  File "/Users/hamzaehsan/Desktop/titleTownTech/speechRecognition/preprocess.py", line 22, in wav2mfcc
-    wave, sr = librosa.load(file_path, mono=True, sr=None)
-  File "/Users/hamzaehsan/anaconda3/lib/python3.7/site-packages/librosa/core/audio.py", line 142, in load
-    y, sr_native = __audioread_load(path, offset, duration, dtype)
-  File "/Users/hamzaehsan/anaconda3/lib/python3.7/site-packages/librosa/core/audio.py", line 164, in __audioread_load
-    with audioread.audio_open(path) as input_file:
-  File "/Users/hamzaehsan/anaconda3/lib/python3.7/site-packages/audioread/__init__.py", line 116, in audio_open
-    raise NoBackendError()
-audioread.exceptions.NoBackendError
