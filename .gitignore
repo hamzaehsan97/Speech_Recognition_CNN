@@ -1,0 +1,11 @@
+.DS_Store
+
+/.vscode
+/.ipynb_checkpoints
+
+data/bed
+data/cat
+data/happy
+
+Predict/Prediction
+
